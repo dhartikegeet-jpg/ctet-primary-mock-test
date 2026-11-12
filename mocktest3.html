@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0B1220">
+<meta name="description" content="Mock Test 1 for CTET Primary Level — Compiled by Sandeep Sir. 150 MCQs, 150 minutes, no negative marking.">
+<title>Mock Test 1 for CTET Primary Level | Compiled by Sandeep Sir</title>
+<style>
+/* ============ DESIGN TOKENS ============ */
+:root{
+  --ink:#0B1220;--ink2:#101B30;--ink3:#182741;
+  --paper:#F6F1E4;--paper2:#EFE7D2;--surface:#FFFFFF;--surface2:#FBF8F1;
+  --line:#E4DAC5;--line2:#D3C6A8;
+  --text:#1B2430;--muted:#5D6B7A;--muted2:#8B97A5;
+  --saffron:#FF9E1B;--saffron2:#F27400;--saffron-soft:#FFF1D6;
+  --teal:#00A896;--teal2:#007F73;--teal-soft:#D9F5F1;
+  --blue:#2E6BFF;--blue-soft:#E5EDFF;
+  --magenta:#C9369E;--magenta-soft:#FBE3F4;
+  --green:#17A34A;--green-soft:#E2F7E9;
+  --red:#DC2626;--red-soft:#FDE8E8;
+  --amber:#E8A317;--amber-soft:#FFF4D9;
+  --shadow:0 10px 30px rgba(11,18,32,.10);
+  --shadow-lg:0 24px 60px rgba(11,18,32,.18);
+  --r:18px;--r-sm:12px;
+  --font:"Noto Sans Devanagari","Mangal","Kohinoor Devanagari","Segoe UI",system-ui,sans-serif;
+  --serif:"Noto Serif Devanagari","Kohinoor Devanagari",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden}
+::selection{background:var(--saffron);color:var(--ink)}
+/* custom scrollbars */
+*{scrollbar-width:thin;scrollbar-color:var(--saffron) var(--paper2)}
+*::-webkit-scrollbar{width:11px;height:11px}
+*::-webkit-scrollbar-track{background:var(--paper2)}
+*::-webkit-scrollbar-thumb{background:linear-gradient(var(--saffron),var(--saffron2));border-radius:20px;border:2px solid var(--paper2)}
+*::-webkit-scrollbar-thumb:hover{background:var(--saffron2)}
+
+/* ============ LAYERED BACKGROUND ============ */
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:
+  radial-gradient(900px 600px at 8% -5%,rgba(255,158,27,.20),transparent 60%),
+  radial-gradient(800px 600px at 100% 10%,rgba(0,168,150,.16),transparent 60%),
+  radial-gradient(700px 700px at 50% 110%,rgba(46,107,255,.12),transparent 60%),
+  var(--paper)}
+.bg::before{content:"";position:absolute;inset:0;background-image:
+  linear-gradient(rgba(11,18,32,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(11,18,32,.035) 1px,transparent 1px);
+  background-size:34px 34px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 80%)}
+.grain{position:absolute;inset:0;opacity:.05;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;animation:drift 18s ease-in-out infinite alternate}
+.o1{width:340px;height:340px;background:var(--saffron);top:-120px;left:-80px}
+.o2{width:300px;height:300px;background:var(--teal);bottom:-100px;right:-60px;animation-delay:-6s}
+.o3{width:240px;height:240px;background:var(--blue);top:40%;left:60%;animation-delay:-12s}
+@keyframes drift{to{transform:translate(40px,-30px) scale(1.08)}}
+
+/* ============ SHARED ============ */
+.screen{display:none;animation:fadeUp .5s ease both}
+.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:12px;padding:12px 22px;font:600 1rem var(--font);cursor:pointer;transition:.18s;text-decoration:none}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(135deg,var(--saffron),var(--saffron2));color:var(--ink);box-shadow:0 6px 18px rgba(242,116,0,.35)}
+.btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:var(--ink3)}
+.btn-ghost{background:var(--surface2);color:var(--text);border:1px solid var(--line2)}
+.btn-ghost:hover{border-color:var(--saffron);background:var(--saffron-soft)}
+.btn-danger{background:linear-gradient(135deg,#E5484D,var(--red));color:#fff}
+.btn-danger:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.chip{display:inline-flex;align-items:center;gap:5px;border-radius:30px;padding:4px 12px;font-size:.78rem;font-weight:700;white-space:nowrap}
+.c-sec{background:var(--blue-soft);color:var(--blue)}
+.c-tag{background:var(--teal-soft);color:var(--teal2)}
+.c-mrk{background:var(--magenta-soft);color:var(--magenta)}
+h1,h2,h3{line-height:1.25}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left}
+th{background:var(--surface2);font-weight:700}
+td.ok{color:var(--green);font-weight:700}td.bad{color:var(--red);font-weight:700}
+tr.tot td{background:var(--saffron-soft);font-weight:800}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:60;background:rgba(11,18,32,.92);back-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800}
+.logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--saffron),var(--saffron2));display:grid;place-items:center;color:var(--ink);font-size:1.1rem}
+.nav-chip{color:var(--teal);border:1px solid rgba(0,168,150,.4);background:rgba(0,168,150,.12);border-radius:30px;padding:4px 12px;font-size:.78rem;font-weight:700}
+
+/* ============ START ============ */
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center;padding:44px 0 26px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--saffron2);font-weight:800;letter-spacing:.12em;font-size:.8rem;text-transform:uppercase}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--saffron)}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;color:var(--ink);margin:10px 0 4px}
+.hero h1 span{display:block;font-size:.5em;font-weight:700;color:var(--muted)}
+.byline{display:inline-flex;align-items:center;gap:8px;margin:12px 0;background:var(--ink);color:#fff;border-radius:30px;padding:7px 16px;font-weight:700}
+.byline b{color:var(--saffron)}
+.hero p{color:var(--muted);max-width:560px}
+.stat-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.stat-chip{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 16px;box-shadow:var(--shadow)}
+.stat-chip b{display:block;font-size:1.25rem;color:var(--ink)}
+.stat-chip span{font-size:.78rem;color:var(--muted);font-weight:600}
+.omr-wrap{display:grid;place-items:center}
+#omrArt svg{width:min(260px,70vw);filter:drop-shadow(0 20px 40px rgba(11,18,32,.22));animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px) rotate(1deg)}}
+.omr-sheet{fill:var(--surface);stroke:var(--line2);stroke-width:2}
+.omr-t{fill:var(--ink);font:800 13px var(--font)}
+.omr-l{stroke:var(--saffron);stroke-width:2}
+.omr-n{fill:var(--muted2);font:700 11px var(--font)}
+.omr-b{fill:none;stroke:var(--line2);stroke-width:2}
+.omr-b.f{fill:var(--saffron);stroke:var(--saffron2);animation:pop .5s ease both}
+@keyframes pop{from{transform:scale(0);transform-origin:center}to{transform:scale(1)}}
+.omr-pencil rect{fill:var(--teal)}
+.omr-pencil path{fill:var(--ink)}
+.start-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:10px 0 20px}
+.panel h2{font-size:1.2rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ins{list-style:none;display:grid;gap:10px}
+.ins li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem}
+.ins li::before{content:"✓";flex:0 0 22px;height:22px;border-radius:50%;background:var(--teal-soft);color:var(--teal2);display:grid;place-items:center;font-weight:900;font-size:.8rem;margin-top:2px}
+.field label{font-weight:700;font-size:.9rem;display:block;margin-bottom:6px}
+.field input[type=text]{width:100%;padding:12px 14px;border:1.5px solid var(--line2);border-radius:12px;font:1rem var(--font);background:var(--surface2);transition:.18s}
+.field input[type=text]:focus{outline:none;border-color:var(--saffron);box-shadow:0 0 0 4px var(--saffron-soft)}
+.lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.lang-card{position:relative;border:2px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;transition:.18s;background:var(--surface2)}
+.lang-card:hover{border-color:var(--saffron);transform:translateY(-2px)}
+.lang-card input{position:absolute;opacity:0}
+.lang-card.picked{border-color:var(--saffron);background:var(--saffron-soft);box-shadow:0 0 0 4px rgba(255,158,27,.18)}
+.lang-ico{display:grid;place-items:center;width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:var(--ink);color:var(--saffron);font-size:1.4rem;font-weight:900}
+.lang-name{display:block;font-weight:800}
+.lang-sub{display:block;font-size:.75rem;color:var(--muted);margin-top:2px}
+.resume{margin-top:14px;border:1.5px dashed var(--teal);background:var(--teal-soft);border-radius:12px;padding:12px}
+.resume p{font-size:.88rem;margin-bottom:8px}
+.resume .btn{padding:8px 14px;font-size:.88rem}
+.pattern{margin-bottom:26px}
+.pattern table td:nth-child(3),.pattern table td:nth-child(4){text-align:center;font-weight:700}
+footer{padding:26px 0 40px;text-align:center;color:var(--muted);font-size:.88rem}
+footer b{color:var(--ink)}
+
+/* ============ EXAM ============ */
+.exam-top{position:sticky;top:0;z-index:70;background:rgba(11,18,32,.96);backdrop-filter:blur(12px);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+.exam-top .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.exam-brand{font-weight:800;font-size:.95rem;display:flex;align-items:center;gap:8px}
+.exam-brand small{display:block;color:var(--muted2);font-weight:600;font-size:.72rem}
+.timer{margin-left:auto;font:800 1.35rem ui-monospace,Menlo,monospace;background:#fff;color:var(--ink);border-radius:10px;padding:4px 14px;font-variant-numeric:tabular-nums;box-shadow:0 0 0 3px rgba(255,158,27,.25)}
+.timer.low{background:var(--red);color:#fff;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.6}}
+.exam-count{font-size:.85rem;color:#cdd6e2}
+.exam-count b{color:var(--saffron);font-size:1.05rem}
+.exam-top .btn{padding:8px 14px;font-size:.85rem}
+.progress{height:5px;background:rgba(255,255,255,.12)}
+#progressFill{height:100%;width:0;background:linear-gradient(90deg,var(--saffron),var(--teal));transition:width .3s}
+.tabs{position:sticky;top:62px;z-index:65;background:rgba(246,241,228,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+.tabs .wrap{display:flex;gap:8px;padding-top:10px;padding-bottom:10px}
+.stab{border:1.5px solid var(--line2);background:var(--surface);border-radius:12px;padding:7px 14px;cursor:pointer;font:700 .85rem var(--font);color:var(--muted);transition:.15s;display:inline-flex;flex-direction:column;align-items:flex-start}
+.stab span{font-size:.7rem;font-weight:600;color:var(--muted2)}
+.stab:hover{border-color:var(--saffron)}
+.stab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.stab.on span{color:var(--saffron)}
+.exam-layout{display:grid;grid-template-columns:1fr 300px;gap:20px;padding:22px 0 60px;align-items:start}
+#questionHost{scroll-margin-top:130px}
+.qcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;animation:fadeUp .3s ease both}
+.qmeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.qnum{font-weight:900;font-size:1.15rem;color:var(--ink);margin-right:4px}
+.qnum em{font-style:normal;color:var(--muted2);font-size:.8em;font-weight:700}
+.passage{background:var(--paper2);border:1px solid var(--line2);border-left:4px solid var(--saffron);border-radius:12px;padding:12px 14px;margin-bottom:16px}
+.passage summary{cursor:pointer;font-weight:800;color:var(--ink);display:flex;justify-content:space-between;gap:10px;align-items:center;list-style:none}
+.passage summary::-webkit-details-marker{display:none}
+.passage summary em{font-style:normal;font-size:.75rem;color:var(--muted);font-weight:600}
+.ptext{white-space:pre-line;font-family:var(--serif);margin-top:10px;border-top:1px dashed var(--line2);padding-top:10px;color:#33302a}
+.qtext{font-weight:700;font-size:1.05rem;margin-bottom:16px;color:var(--ink)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;border:2px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;transition:.15s;background:var(--surface);position:relative}
+.opt:hover{border-color:var(--saffron);background:var(--saffron-soft);transform:translateX(3px)}
+.opt input{position:absolute;opacity:0}
+.opt.sel{border-color:var(--saffron);background:var(--saffron-soft);box-shadow:0 0 0 4px rgba(255,158,27,.15)}
+.okey{flex:0 0 28px;height:28px;border-radius:8px;background:var(--surface2);border:1.5px solid var(--line2);display:grid;place-items:center;font-weight:900;font-size:.85rem;color:var(--muted)}
+.opt.sel .okey{background:var(--saffron);border-color:var(--saffron2);color:var(--ink)}
+.otext{flex:1}
+.ock,.ox{font-weight:900;margin-left:auto}
+.ock{color:var(--green);opacity:0}
+.opt.sel .ock{opacity:1}
+.opt.correct{border-color:var(--green);background:var(--green-soft)}
+.opt.correct .okey{background:var(--green);border-color:var(--green);color:#fff}
+.opt.correct .ock{opacity:1}
+.opt.wrong{border-color:var(--red);background:var(--red-soft)}
+.opt.wrong .okey{background:var(--red);border-color:var(--red);color:#fff}
+.opt.wrong .ox{color:var(--red)}
+.opt.static{cursor:default}
+.opt.static:hover{transform:none}
+.action-bar{position:sticky;bottom:12px;z-index:40;display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow-lg)}
+.action-bar .btn{flex:1;min-width:130px;padding:11px 12px;font-size:.9rem}
+.kbd-hint{margin-top:10px;font-size:.78rem;color:var(--muted);text-align:center}
+kbd{background:var(--surface2);border:1px solid var(--line2);border-bottom-width:2px;border-radius:5px;padding:1px 6px;font:700 .75rem ui-monospace,monospace}
+
+/* palette */
+.palette{position:sticky;top:130px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;max-height:calc(100vh - 150px);overflow:auto}
+.palette h3{font-size:1rem;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.palette-close{display:none;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted)}
+.pgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.pbtn{aspect-ratio:1;border-radius:9px;border:1.5px solid var(--line2);background:var(--surface2);font:800 .8rem var(--font);color:var(--muted);cursor:pointer;transition:.12s;position:relative}
+.pbtn:hover{border-color:var(--saffron);transform:scale(1.06)}
+.pbtn.ans{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.pbtn.mrk{background:var(--magenta-soft);border-color:var(--magenta);color:var(--magenta)}
+.pbtn.mrk.ans::after{content:"";position:absolute;right:3px;bottom:3px;width:7px;height:7px;border-radius:50%;background:var(--green)}
+.pbtn.seen{background:var(--amber-soft);border-color:var(--amber);color:var(--amber)}
+.pbtn.cur{box-shadow:0 0 0 3px var(--blue);border-color:var(--blue);color:var(--blue)}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:14px;font-size:.72rem;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:4px;border:1.5px solid}
+.d-ans{background:var(--green-soft);border-color:var(--green)}
+.d-mrk{background:var(--magenta-soft);border-color:var(--magenta)}
+.d-seen{background:var(--amber-soft);border-color:var(--amber)}
+.d-cur{background:var(--blue-soft);border-color:var(--blue)}
+.palette-backdrop{display:none}
+.palette-fab{display:none}
+
+/* ============ RESULT ============ */
+.result-hero{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;margin:30px 0 20px}
+.ring-wrap{position:relative;width:170px;height:170px}
+.ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--line);stroke-width:11}
+.ring-fg{fill:none;stroke:url(#ringGrad);stroke-width:11;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)}
+.ring-fg.fail{stroke:var(--red)}
+.ring-center{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring-center b{font-size:2.4rem;font-weight:900;color:var(--ink);line-height:1}
+.ring-center span{font-size:.8rem;color:var(--muted);font-weight:700}
+.result-info h1{font-size:1.7rem;color:var(--ink)}
+.result-info p{color:var(--muted);margin:4px 0}
+.badge{display:inline-flex;align-items:center;gap:8px;border-radius:30px;padding:9px 20px;font-weight:900;margin-top:10px}
+.badge.pass{background:var(--green-soft);color:var(--green);border:2px solid var(--green)}
+.badge.fail{background:var(--red-soft);color:var(--red);border:2px solid var(--red)}
+.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:1.6rem;font-weight:900}
+.stat span{font-size:.78rem;color:var(--muted);font-weight:700}
+.stat.s-ok b{color:var(--green)}.stat.s-bad b{color:var(--red)}.stat.s-skip b{color:var(--amber)}.stat.s-acc b{color:var(--blue)}.stat.s-time b{color:var(--teal2);font-size:1.2rem}
+.review-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0}
+.fchips{display:flex;gap:6px;flex-wrap:wrap}
+.fchips button{border:1.5px solid var(--line2);background:var(--surface);border-radius:30px;padding:6px 14px;font:700 .82rem var(--font);cursor:pointer;color:var(--muted)}
+.fchips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.review-controls input,.review-controls select{padding:8px 12px;border:1.5px solid var(--line2);border-radius:10px;font: .9rem var(--font);background:var(--surface)}
+.rcard{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--line2);border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
+.rcard.correct{border-left-color:var(--green)}
+.rcard.wrong{border-left-color:var(--red)}
+.rcard.skip{border-left-color:var(--amber)}
+.rhead{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.rq{font-weight:900;color:var(--ink)}
+.rb{border-radius:20px;padding:3px 12px;font-size:.78rem;font-weight:800;margin-left:auto}
+.rb.ok{background:var(--green-soft);color:var(--green)}
+.rb.bad{background:var(--red-soft);color:var(--red)}
+.rb.skip{background:var(--amber-soft);color:var(--amber)}
+.keyline{margin-top:12px;background:var(--blue-soft);color:var(--blue);border-radius:9px;padding:8px 12px;font-weight:700;font-size:.9rem}
+.empty{text-align:center;color:var(--muted);padding:40px}
+
+/* ============ MODAL / TOAST ============ */
+.modal{position:fixed;inset:0;z-index:200;display:none;place-items:center;background:rgba(11,18,32,.6);backdrop-filter:blur(6px);padding:18px}
+.modal.open{display:grid;animation:fadeUp .2s ease}
+.modal-card{background:var(--surface);border-radius:20px;max-width:440px;width:100%;padding:26px;box-shadow:var(--shadow-lg);border-top:5px solid var(--saffron)}
+.modal-card h2{margin-bottom:14px}
+.srow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line)}
+.srow b{color:var(--ink)}
+.swarn{background:var(--amber-soft);color:#8a6100;border-radius:10px;padding:10px 12px;font-size:.88rem;margin:12px 0}
+.modal-actions{display:flex;gap:10px;margin-top:18px}
+.modal-actions .btn{flex:1}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:var(--ink);color:#fff;border-radius:12px;padding:12px 20px;font-weight:700;font-size:.9rem;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.25s;z-index:300;border-left:4px solid var(--saffron)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.fatal{margin:30px auto;max-width:600px;background:var(--red-soft);color:var(--red);border:2px solid var(--red);border-radius:14px;padding:20px;font-weight:700}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .hero p{margin:0 auto}.eyebrow{justify-content:center}.stat-chips{justify-content:center}
+  .omr-wrap{order:-1}#omrArt svg{width:180px}
+  .start-grid{grid-template-columns:1fr}
+  .exam-layout{grid-template-columns:1fr}
+  .palette{position:fixed;inset:auto 0 0 0;z-index:150;max-height:72vh;border-radius:20px 20px 0 0;transform:translateY(105%);transition:transform .3s ease;box-shadow:0 -20px 60px rgba(11,18,32,.3)}
+  body.pal-open .palette{transform:none}
+  .palette-close{display:block}
+  .palette-backdrop{display:block;position:fixed;inset:0;z-index:140;background:rgba(11,18,32,.5);opacity:0;pointer-events:none;transition:.3s}
+  body.pal-open .palette-backdrop{opacity:1;pointer-events:auto}
+  .palette-fab{display:grid;place-items:center;position:fixed;right:16px;bottom:86px;z-index:80;width:54px;height:54px;border-radius:50%;border:none;background:var(--ink);color:var(--saffron);font-size:1.3rem;box-shadow:var(--shadow-lg);cursor:pointer}
+  .pgrid{grid-template-columns:repeat(8,1fr)}
+  .result-hero{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .stats-grid{grid-template-columns:repeat(3,1fr)}
+  .tabs{top:58px}
+}
+@media(max-width:560px){
+  .wrap{padding:0 12px}
+  .hero{padding:26px 0 16px}
+  .lang-grid{grid-template-columns:1fr}
+  .exam-top .wrap{gap:8px}
+  .exam-brand{font-size:.8rem}.exam-brand small{display:none}
+  .timer{font-size:1.1rem;padding:3px 10px}
+  .exam-count{font-size:.75rem}
+  .exam-top .btn{padding:6px 10px;font-size:.78rem}
+  .qcard{padding:16px}
+  .qtext{font-size:1rem}
+  .action-bar{bottom:8px;padding:10px;gap:8px}
+  .action-bar .btn{min-width:calc(50% - 8px);font-size:.82rem;padding:10px 8px}
+  .pgrid{grid-template-columns:repeat(6,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .result-actions .btn{flex:1;min-width:140px}
+  .review-controls{flex-direction:column;align-items:stretch}
+  .review-controls input,.review-controls select{width:100%}
+}
+@media print{
+  .bg,.nav,.exam-top,.tabs,.action-bar,.palette,.palette-fab,.result-actions,.review-controls,.toast{display:none!important}
+  body{background:#fff}
+  .screen{display:none!important}.screen#screen-result.active{display:block!important}
+  .panel,.rcard,.stat{box-shadow:none;break-inside:avoid}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body data-screen="start">
+<div class="bg" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="grain"></div></div>
+<div id="fatal" class="fatal" hidden></div>
+
+<!-- ==================== START SCREEN ==================== -->
+<section id="screen-start" class="screen active">
+  <nav class="nav"><div class="wrap">
+    <div class="brand"><span class="logo">✎</span><span>CTET · Mock Test 1</span></div>
+    <span class="nav-chip">● GitHub Pages Ready</span>
+  </div></nav>
+
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">CTET Paper‑1 · Primary Level · Classes 1–5</span>
+        <h1>Mock Test 1<span>for CTET Primary Level</span></h1>
+        <div class="byline">✦ Compiled by <b>Sandeep Sir</b></div>
+        <p>आधिकारिक CTET पाठ्यक्रम पर आधारित पूर्ण मॉक टेस्ट — अवधारणात्मक, तर्क‑आधारित, अभिकथन‑कारण एवं समझ‑परक प्रश्न। माध्यम: हिंदी · Language 2: English / संस्कृत।</p>
+        <div class="stat-chips">
+          <div class="stat-chip"><b>150</b><span>प्रश्न / अंक</span></div>
+          <div class="stat-chip"><b>2:30</b><span>घंटे:मिनट</span></div>
+          <div class="stat-chip"><b>90</b><span>उत्तीर्णांक (60%)</span></div>
+          <div class="stat-chip"><b>0</b><span>ऋणात्मक अंकन</span></div>
+        </div>
+      </div>
+      <div class="omr-wrap"><div id="omrArt"></div></div>
+    </div>
+
+    <div class="start-grid">
+      <div class="panel">
+        <h2>📋 परीक्षा निर्देश</h2>
+        <ul class="ins">
+          <li>कुल प्रश्न <b>150</b>, कुल अंक <b>150</b>; प्रत्येक सही उत्तर पर <b>1 अंक</b>।</li>
+          <li><b>ऋणात्मक मूल्यांकन नहीं</b> — इसलिए सभी प्रश्न अवश्य हल करें।</li>
+          <li>समय <b>150 मिनट</b>; समय समाप्त होते ही टेस्ट स्वतः जमा।</li>
+          <li>उत्तीर्णांक <b>90 (60%)</b>; प्रश्न‑बैंक में 180 MCQs, आपको 150 मिलेंगे।</li>
+          <li>भाग 3 में <b>English अथवा संस्कृत</b> में से किसी एक का चयन अनिवार्य।</li>
+          <li>पेज रिफ्रेश/बंद होने पर प्रगति सुरक्षित; वापस आकर जारी रख सकते हैं।</li>
+          <li>समीक्षा हेतु प्रश्न चिह्नित करें; पैलेट से किसी भी प्रश्न पर जाएँ।</li>
+        </ul>
+      </div>
+
+      <div class="panel" id="setupCard">
+        <h2>🚀 टेस्ट प्रारंभ करें</h2>
+        <div class="field">
+          <label for="nameInput">आपका नाम (वैकल्पिक)</label>
+          <input type="text" id="nameInput" placeholder="यहाँ अपना नाम लिखें" autocomplete="name">
+        </div>
+        <label style="font-weight:700;font-size:.9rem">भाषा 2 का चयन करें (अनिवार्य)</label>
+        <div class="lang-grid">
+          <label class="lang-card"><input type="radio" name="lang2" value="english"><span class="lang-ico">A</span><span class="lang-name">English</span><span class="lang-sub">Q61–90 · English medium</span></label>
+          <label class="lang-card"><input type="radio" name="lang2" value="sanskrit"><span class="lang-ico">अ</span><span class="lang-name">संस्कृत</span><span class="lang-sub">प्रश्न 61–90 · संस्कृत</span></label>
+        </div>
+        <button class="btn btn-primary" id="startBtn" style="width:100%">टेस्ट प्रारंभ करें →</button>
+        <div class="resume" id="resumeBox" hidden>
+          <p><b>पिछला अपूर्ण प्रयास मिला।</b><br><span id="resumeInfo"></span></p>
+          <button class="btn btn-ink" id="resumeBtn">जारी रखें</button>
+          <button class="btn btn-ghost" id="discardBtn">नया प्रयास</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel pattern">
+      <h2>🧩 प्रश्न‑पत्र की संरचना</h2>
+      <table>
+        <thead><tr><th>भाग</th><th>विषय</th><th>प्रश्न</th><th>अंक</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>बाल विकास एवं शिक्षाशास्त्र</td><td>30</td><td>30</td></tr>
+          <tr><td>2</td><td>भाषा 1 · हिंदी — 15 अपठित (गद्य+पद्य) + 15 शिक्षण‑विधि</td><td>30</td><td>30</td></tr>
+          <tr><td>3</td><td>भाषा 2 · English / संस्कृत — कोई एक; 15 अपठित + 15 शिक्षण‑विधि</td><td>30</td><td>30</td></tr>
+          <tr><td>4</td><td>गणित — 15 विषय‑वस्तु + 15 शिक्षण‑विधि</td><td>30</td><td>30</td></tr>
+          <tr><td>5</td><td>पर्यावरण अध्ययन — 15 विषय‑वस्तु + 15 शिक्षण‑विधि</td><td>30</td><td>30</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <footer>© <b>Mock Test 1 for CTET Primary Level</b> · Compiled by <b>Sandeep Sir</b> · अभ्यास हेतु मौलिक प्रश्न‑सामग्री</footer>
+  </div>
+</section>
+
+<!-- ==================== EXAM SCREEN ==================== -->
+<section id="screen-exam" class="screen">
+  <div class="exam-top"><div class="wrap">
+    <div class="exam-brand"><span class="logo" style="width:28px;height:28px;font-size:.9rem">✎</span><div>CTET Mock Test 1<small id="examName"></small></div></div>
+    <div class="timer" id="timer">2:30:00</div>
+    <div class="exam-count">उत्तर दिए <b id="answeredCount">0</b>/150</div>
+    <button class="btn btn-ghost" id="paletteToggle" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)">▦ पैलेट</button>
+    <button class="btn btn-danger" id="submitBtn">जमा करें</button>
+  </div><div class="progress"><div id="progressFill"></div></div></div>
+
+  <div class="tabs"><div class="wrap" id="sectionTabs"></div></div>
+
+  <div class="wrap exam-layout">
+    <div>
+      <div id="questionHost"></div>
+      <div class="action-bar">
+        <button class="btn btn-ghost" id="btnPrev">← पिछला</button>
+        <button class="btn btn-ghost" id="btnClear">उत्तर हटाएँ</button>
+        <button class="btn btn-ghost" id="btnMark">☆ चिह्नित करें</button>
+        <button class="btn btn-primary" id="btnNext">सहेजें और अगला →</button>
+      </div>
+      <div class="kbd-hint"><kbd>1</kbd>–<kbd>4</kbd> विकल्प · <kbd>←</kbd>/<kbd>→</kbd> नेविगेट · <kbd>M</kbd> चिह्नित</div>
+    </div>
+    <aside class="palette" id="palettePanel">
+      <h3>प्रश्न पैलेट <button class="palette-close" id="paletteClose" aria-label="बंद करें">×</button></h3>
+      <div class="pgrid" id="paletteGrid"></div>
+      <div class="legend">
+        <span><i class="dot d-ans"></i>उत्तरित</span><span><i class="dot d-mrk"></i>चिह्नित</span>
+        <span><i class="dot d-seen"></i>देखा गया</span><span><i class="dot d-cur"></i>वर्तमान</span>
+      </div>
+    </aside>
+  </div>
+  <div class="palette-backdrop" id="paletteBackdrop"></div>
+  <button class="palette-fab" id="paletteFab" aria-label="प्रश्न पैलेट">▦</button>
+</section>
+
+<!-- ==================== RESULT SCREEN ==================== -->
+<section id="screen-result" class="screen">
+  <nav class="nav"><div class="wrap">
+    <div class="brand"><span class="logo">✎</span><span>परिणाम · Mock Test 1</span></div>
+    <span class="nav-chip">Compiled by Sandeep Sir</span>
+  </div></nav>
+  <div class="wrap">
+    <div class="result-hero">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9E1B"/><stop offset="1" stop-color="#00A896"/></linearGradient></defs>
+          <circle class="ring-bg" cx="60" cy="60" r="52"/>
+          <circle class="ring-fg" id="ringFg" cx="60" cy="60" r="52"/>
+        </svg>
+        <div class="ring-center"><div><b id="scoreNum">0</b><span>/150 · <span id="scorePct">0%</span></span></div></div>
+      </div>
+      <div class="result-info">
+        <h1>📊 परिणाम — <span id="resultName"></span></h1>
+        <p id="resultMeta"></p>
+        <div class="badge" id="passBadge"></div>
+        <div class="result-actions">
+          <button class="btn btn-primary" id="downloadBtn">⬇ रिपोर्ट डाउनलोड</button>
+          <button class="btn btn-ink" id="printBtn">🖨 प्रिंट</button>
+          <button class="btn btn-ghost" id="retryBtn">🔄 नया प्रयास</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat s-ok"><b id="statCorrect">0</b><span>सही</span></div>
+      <div class="stat s-bad"><b id="statWrong">0</b><span>गलत</span></div>
+      <div class="stat s-skip"><b id="statSkipped">0</b><span>अनुत्तरित</span></div>
+      <div class="stat s-acc"><b id="statAccuracy">0%</b><span>सटीकता</span></div>
+      <div class="stat s-time"><b id="statTime">0:00</b><span>लिया गया समय</span></div>
+    </div>
+
+    <div class="panel"><h2 style="margin-bottom:12px">📚 विषयवार प्रदर्शन</h2><div id="sectionTable"></div></div>
+
+    <div class="panel" style="margin:20px 0">
+      <h2>📝 उत्तर‑कुंजी सहित समीक्षा (<span id="reviewCount">0</span> प्रश्न)</h2>
+      <div class="review-controls">
+        <div class="fchips" id="filterChips">
+          <button data-f="all" class="on">सभी</button><button data-f="correct">सही</button>
+          <button data-f="wrong">गलत</button><button data-f="skip">अनुत्तरित</button><button data-f="marked">चिह्नित</button>
+        </div>
+        <input type="text" id="reviewSearch" placeholder="प्रश्न खोजें…">
+        <select id="reviewSort"><option value="num">क्रम: प्रश्न संख्या</option><option value="status">क्रम: स्थिति</option></select>
+      </div>
+    </div>
+    <div id="reviewList"></div>
+    <footer>© <b>Mock Test 1 for CTET Primary Level</b> · Compiled by <b>Sandeep Sir</b></footer>
+  </div>
+</section>
+
+<!-- ==================== SUBMIT MODAL ==================== -->
+<div class="modal" id="submitModal" role="dialog" aria-modal="true" aria-labelledby="submitTitle">
+  <div class="modal-card">
+    <h2 id="submitTitle">टेस्ट जमा करें?</h2>
+    <div id="submitStats"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="cancelSubmit">वापस जाएँ</button>
+      <button class="btn btn-danger" id="confirmSubmit">हाँ, जमा करें</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+"use strict";
+/* ==================== DATA: 180 MCQs (6 × 30) ====================
+   {q:प्रश्न, o:[4 विकल्प], a:सही विकल्प (0‑3), p:अपठित अंश} */
+const CONFIG={duration:9000,pass:90,total:150};
+const STORE="sandeep_ctet_mock1_v3";
+const PASSAGES={
+hindiProse:{title:"गद्यांश (प्रश्न 31–38 हेतु)",text:`एक समय था जब बच्चों की शामें मैदानों में बीतती थीं। गिल्ली-डंडा, कंचे और पिट्ठू केवल खेल नहीं थे; वे बचपन की पाठशालाएँ थीं। हार-जीत के बहाने बच्चे धैर्य सीखते थे, नियमों के पालन में अनुशासन और साथी के दुख में सहानुभूति। आज वही शामें छोटी-सी स्क्रीन में सिमट गई हैं। आभासी दुनिया के रंग चटक हैं, पर वहाँ दौड़ने की जगह नहीं, मिट्टी की महक नहीं, गिरकर उठने का अनुभव नहीं।
+विशेषज्ञ बताते हैं कि खुले मैदान के खेल शरीर ही नहीं, मन को भी गढ़ते हैं; उनसे एकाग्रता बढ़ती है और सृजनात्मकता को नई ज़मीन मिलती है। इसका अर्थ यह नहीं कि तकनीक का बहिष्कार कर दिया जाए। आवश्यकता संतुलन की है — स्क्रीन कुछ समय के लिए, मैदान अवश्य के लिए। जब बच्चा साथियों के साथ खेलता है, तो वह अनजाने में जीवन के सबसे कठिन पाठ सीखता है — मिल-जुलकर रहना। जो समाज अपने बच्चों से मैदान छीन लेता है, वह उनसे संवाद, सहयोग और सहजता छीन लेता है। बचपन को बचपन रहने देना ही सच्ची शिक्षा की पहली सीढ़ी है।`},
+hindiPoem:{title:"पद्यांश — कबीर के दोहे (प्रश्न 39–45 हेतु)",text:`बड़ा हुआ तो क्या हुआ, जैसे पेड़ खजूर।
+पंथी को छाया नहीं, फल लागे अति दूर॥
+
+पोथी पढ़ि पढ़ि जग मुआ, पंडित भया न कोय।
+ढाई आखर प्रेम का, पढ़े सो पंडित होय॥
+
+निंदक नियरे राखिए, आँगन कुटी छवाय।
+बिन पानी साबुन बिना, निर्मल करै सुभाय॥`},
+engProse:{title:"Reading Passage (for Q61–68)",text:`Honeybees are among the most remarkable communicators in the animal world. When a worker bee discovers a rich patch of flowers, she returns to the hive and performs a special movement called the waggle dance. Running in a figure of eight, she waggles her body along the middle line. The angle of this line, measured against the sun, tells the other bees the direction of the flowers. The duration of the waggle tells them how far away the food is: a longer waggle means a longer journey.
+Other bees follow the dancer closely, touching her with their antennae, and then fly out to forage. Scientists find this astonishing because a bee's brain is smaller than a grain of rice, yet it can share abstract information about a place the other bees have never seen. The dance is not perfect — dancers sometimes make small errors — but the colony as a whole still finds food efficiently. In a world where flowers bloom and fade quickly, this shared 'map' helps thousands of bees work together as one intelligent team.`},
+engPoem:{title:"Poem Excerpt — William Wordsworth (for Q69–75)",text:`I wandered lonely as a cloud
+That floats on high o'er vales and hills,
+When all at once I saw a crowd,
+A host, of golden daffodils;
+Beside the lake, beneath the trees,
+Fluttering and dancing in the breeze.`},
+sanProse:{title:"अपठित गद्यांश (प्रश्न 61–68 हेतु)",text:`एकः कृषकः आसीत्। सः प्रतिदिनं क्षेत्रं गच्छति। तस्य क्षेत्रे बहवः वृक्षाः सन्ति। कृषकः वृक्षेषु जलं सिञ्चति। वृक्षाः मधुराणि फलानि यच्छन्ति। कृषकः फलानि नगरं नयति। जनाः फलानि क्रीणन्ति। कृषकः धनं प्राप्नोति।
+एकदा एकः वृद्धः पथिकः तस्य गृहम् आगतः। सः अतीव क्षुधितः आसीत्। कृषकः तस्मै फलानि जलं च दत्तवान्। पथिकः प्रसन्नः अभवत्। सः कृषकाय आशीर्वादं दत्तवान्।`},
+sanPoem:{title:"अपठित पद्यांश — सुभाषिते (प्रश्न 69–75 हेतु)",text:`विद्या ददाति विनयं विनयाद् याति पात्रताम्।
+पात्रत्वाद् धनम् आप्नोति धनाद् धर्मं ततः सुखम्॥
+
+उद्यमेन हि सिध्यन्ति कार्याणि न मनोरथैः।
+न हि सुप्तस्य सिंहस्य प्रविशन्ति मुखे मृगाः॥`}
+};
+const QB={};
+/* ---------- भाग 1: बाल विकास एवं शिक्षाशास्त्र (30) ---------- */
+QB.cdp=[
+{q:"कक्षा 3 की एक शिक्षिका पाठ पढ़ाते समय देखती है कि कुछ बच्चे एक बार में पूरा अनुच्छेद पढ़ लेते हैं, जबकि कुछ बार-बार अटकते हैं। वह सभी से एक ही गति से पढ़ने की अपेक्षा करती है और धीमे बच्चों को 'आलसी' कहती है। शिक्षिका की यह मान्यता विकास के किस सिद्धांत की अवहेलना करती है?",o:["विकास एक निरंतर चलने वाली प्रक्रिया है","विकास की दर प्रत्येक बालक में भिन्न-भिन्न होती है","विकास के सभी क्षेत्र परस्पर स्वतंत्र होते हैं","विकास केवल शारीरिक परिपक्वता पर निर्भर करता है"],a:1},
+{q:"अभिकथन (A): एक ही परिवार में पले दो जुड़वाँ बच्चों की शैक्षिक उपलब्धि भिन्न हो सकती है।<br>कारण (R): बालक का विकास केवल वंशानुक्रम से निर्धारित होता है, वातावरण की कोई भूमिका नहीं होती।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:2},
+{q:"एक शिशु पहले अपना सिर संभालना सीखता है, फिर बैठना, फिर घुटनों के बल चलना और अंत में पैरों से चलना। यह क्रम विकास के किस नियम को दर्शाता है?",o:["निकट-दूरगामी (समीप से परिधि की ओर) नियम","एकीकरण का नियम","शीर्षगामी (मस्तक से चरण की ओर) नियम","स्वतंत्रता का नियम"],a:2},
+{q:"शिक्षक एक ही मात्रा का पानी दो समान चौड़े गिलासों में दिखाता है, फिर एक गिलास का पानी लंबे पतले गिलास में डाल देता है। 5 वर्षीय बालक कहता है — 'अब इसमें पानी ज़्यादा है क्योंकि यह ऊँचा है।' बालक के उत्तर से किस संकल्पना के अभाव का पता चलता है?",o:["वर्गीकरण (Classification)","संरक्षण (Conservation)","क्रमानुसारण (Seriation)","वस्तु-स्थायित्व (Object Permanence)"],a:1},
+{q:"कक्षा 4 का एक बालक अब लंबाई के अनुसार छड़ों को मानसिक रूप से क्रमबद्ध कर सकता है, समझता है कि यदि A > B और B > C तो A > C होगा, तथा मिट्टी के गोले को लंबा करने पर मात्रा वही रहती है — परंतु यह सब ठोस वस्तुओं के संदर्भ में ही कर पाता है, अमूर्त कथनों पर नहीं। पियाजे के अनुसार बालक किस अवस्था में है?",o:["संवेदी-गामक अवस्था","पूर्व-संक्रियात्मक अवस्था","औपचारिक संक्रियात्मक अवस्था","मूर्त संक्रियात्मक अवस्था"],a:3},
+{q:"एक बालक कठिन पहेली स्वतंत्र रूप से हल नहीं कर पाता, किंतु शिक्षिका के संकेतों और आंशिक सहायता से उसे हल कर लेता है। वाइगोत्सकी के अनुसार यह क्षमता किस क्षेत्र को दर्शाती है?",o:["वास्तविक विकासात्मक स्तर","समीपस्थ विकास का क्षेत्र (ZPD)","पूर्व-संक्रियात्मक क्षेत्र","अनुबंधन क्षेत्र"],a:1},
+{q:"अभिकथन (A): वाइगोत्सकी के अनुसार किसी कठिन कार्य के दौरान बालक का स्वयं से बोलना (निजी भाषण) संज्ञानात्मक स्व-नियंत्रन का साधन है।<br>कारण (R): वाइगोत्सकी मानते हैं कि सामाजिक अंतःक्रिया की भाषा धीरे-धीरे आंतरिकीकृत होकर चिंतन का रूप ले लेती है।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:0},
+{q:"एक बालक रास्ते में मिला बटुआ इसलिए लौटाता है क्योंकि उसे लगता है कि मालिक उसे इनाम देगा — 'मैं उसकी मदद करूँगा तो वह मेरी मदद करेगा।' कोहलबर्ग के नैतिक विकास के अनुसार यह तर्क किस स्तर/चरण का है?",o:["पारंपरिक स्तर — कानून एवं व्यवस्था अभिविन्यास","उत्तर-पारंपरिक स्तर — सामाजिक अनुबंध अभिविन्यास","पूर्व-पारंपरिक स्तर — साधनवादी उद्देश्य (लागत-लाभ) अभिविन्यास","उत्तर-पारंपरिक स्तर — सार्वभौमिक नैतिक सिद्धांत"],a:2},
+{q:"एक छात्र कक्षा में इसलिए सबकी सहायता करता है क्योंकि वह मित्रों और शिक्षकों की दृष्टि में 'अच्छा लड़का' बनना चाहता है और उनकी प्रशंसा उसे प्रिय है। कोहलबर्ग के अनुसार यह नैतिक तर्क किस चरण का है?",o:["पारंपरिक स्तर — 'अच्छा लड़का/अच्छी लड़की' अभिविन्यास","पूर्व-पारंपरिक स्तर — दंड एवं आज्ञापालन अभिविन्यास","उत्तर-पारंपरिक स्तर — अंतरात्मा अभिविन्यास","पूर्व-पारंपरिक स्तर — भौतिकवादी अभिविन्यास"],a:0},
+{q:"एक शिक्षक कक्षा में बार-बार गुस्से में चिल्लाकर बच्चों को डाँटता है। कुछ सप्ताह बाद खेल के समय कई बच्चे अपने साथियों पर उसी तरह चिल्लाने और डाँटने लगते हैं। यह किस प्रकार के अधिगम का सर्वोत्तम उदाहरण है?",o:["क्रिया-प्रसूत अनुबंधन","शास्त्रीय अनुबंधन","प्रयास-त्रुटि अधिगम","प्रेक्षणात्मक अधिगम (प्रतिरूपण) — बंदूरा"],a:3},
+{q:"एक शिक्षिका घोषणा करती है — 'जो विद्यार्थी सप्ताह भर समय पर गृहकार्य जमा करेगा, उसे सप्ताहांत का अतिरिक्त अभ्यास-कार्य नहीं करना पड़ेगा।' समय पर कार्य जमा करने वाले बच्चों की संख्या बढ़ जाती है। स्किनर के अनुसार यह किसका उदाहरण है?",o:["धनात्मक पुनर्बलन","दंड (Punishment)","ऋणात्मक पुनर्बलन — अप्रिय उद्दीपक हटाकर व्यवहार बढ़ाना","विलोपन (Extinction)"],a:2},
+{q:"थॉर्नडाइक के अनुसार जब बालक किसी कार्य को सीखने के लिए मानसिक एवं शारीरिक रूप से तैयार होता है, तो उसे सीखना संतोषजनक लगता है; तैयार न होने पर वही कार्य कष्टकारी हो जाता है। यह किस नियम पर आधारित है?",o:["अभ्यास का नियम","तत्परता का नियम","प्रभाव का नियम","आंशिक क्रिया का नियम"],a:1},
+{q:"एक बालक कई प्रयासों के बाद भी ऊँची अलमारी पर रखी गेंद नहीं निकाल पाता। अचानक वह पास पड़ी छड़ को देखकर उसे जोड़कर गेंद उतार लेता है — समाधान एक ही क्षण में 'कौंध' की तरह आता है। यह किस सिद्धांत का उदाहरण है?",o:["कोहलर का सूझ (Insight) का सिद्धांत","थॉर्नडाइक का प्रयास-त्रुटि सिद्धांत","पावलव का अनुबंधन सिद्धांत","स्किनर का पुनर्बलन सिद्धांत"],a:0},
+{q:"एक छात्रा पढ़ाई में औसत है, किंतु नृत्य और अभिनय में असाधारण कुशलता से शरीर की गतियों द्वारा भाव व्यक्त करती है। गार्डनर के बहु-बुद्धि सिद्धांत के अनुसार उसमें कौन-सी बुद्धि प्रबल है?",o:["स्थानिक (Spatial) बुद्धि","संगीतात्मक बुद्धि","शारीरिक-गतिक (Bodily-Kinesthetic) बुद्धि","अंतर्वैयक्तिक बुद्धि"],a:2},
+{q:"एक बालक औपचारिक परीक्षाओं में औसत अंक लाता है, किंतु मोहल्ले में मोल-भाव करने, रास्ता खोजने और रोज़मर्रा की व्यावहारिक समस्याएँ सुलझाने में बहुत कुशल है। स्टर्नबर्ग के त्रितंत्र सिद्धांत के अनुसार यह किस बुद्धि का प्रदर्शन है?",o:["घटकात्मक (विश्लेषणात्मक) बुद्धि","व्यावहारिक (संदर्भात्मक) बुद्धि","सृजनात्मक (अनुभवात्मक) बुद्धि","भाषिक बुद्धि"],a:1},
+{q:"शिक्षक पूछता है — 'ईंट के जितने उपयोग तुम सोच सकते हो, सब लिखो।' कुछ बच्चे दीवार, दरवाज़ा रोकना, वज़न, हथौड़े का काम, चॉक की तरह लिखना — जैसे अनेक भिन्न-दिशाओं वाले उत्तर देते हैं। यह मुख्यतः किस चिंतन का अभ्यास है?",o:["अभिसारी चिंतन","यांत्रिक चिंतन","स्मृति-आधारित चिंतन","अपसारी चिंतन (सृजनात्मकता का आधार)"],a:3},
+{q:"कक्षा 3 का एक बालक मौखिक प्रश्नों के उत्तर बहुत अच्छे देता है, सामान्य बुद्धि है, किंतु पढ़ते समय 'b' को 'd', 'was' को 'saw' पढ़ता है और शब्दों के क्रम उलट देता है। सबसे संभावित पहचान क्या है?",o:["बौद्धिक अक्षमता","विशिष्ट अधिगम अक्षमता — डिस्लेक्सिया","दृष्टि-दोष के कारण सामान्य कमज़ोरी","जानबूझकर की गई शरारत"],a:1},
+{q:"दिव्यांगजन अधिकार अधिनियम (RPwD Act), 2016 में दिव्यांगता की कितनी श्रेणियाँ मान्यता प्राप्त हैं?",o:["7","14","21","19"],a:2},
+{q:"एक शिक्षक कहता है — 'गणित के कठिन सवाल लड़के ही कर पाते हैं, लड़कियाँ आसान वाले करो।' इस कथन का सर्वाधिक उपयुक्त विश्लेषण क्या है?",o:["यह लैंगिक रूढ़िवादिता है; शिक्षक को सभी को समान चुनौतीपूर्ण अवसर देकर इसे चुनौती देनी चाहिए","यह सही है क्योंकि शोध में लड़के गणित में स्वाभाविक रूप से श्रेष्ठ सिद्ध हुए हैं","यह बाल-केंद्रित शिक्षण का उदाहरण है","यह विभेदीकृत शिक्षण का वैज्ञानिक प्रयोग है"],a:0},
+{q:"एक शिक्षिका हर सप्ताह छोटी गतिविधियों से बच्चों की समझ जाँचती है और तुरंत फीडबैक देकर अगले सप्ताह का शिक्षण उसी अनुसार बदलती है। यह किस प्रकार का मूल्यांकन है?",o:["योगात्मक (Summative) मूल्यांकन","रचनात्मक (Formative) मूल्यांकन — अधिगम के लिए आकलन","मानक-संदर्भित परीक्षण","प्लेसमेंट मूल्यांकन"],a:1},
+{q:"अभिकथन (A): सतत एवं व्यापक मूल्यांकन बच्चों के परीक्षा-भय को घटाने में सहायक होता है।<br>कारण (R): इसमें मूल्यांकन एकबारगी अंतिम निर्णय न होकर अधिगम-सुधार की निरंतर प्रक्रिया का अंग बन जाता है।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:0},
+{q:"एक बालक बिना किसी इनाम या अंक की अपेक्षा के, केवल जिज्ञासावश तितलियों के जीवन-चक्र पर पुस्तकें पढ़ता और चित्र बनाता है। उसकी प्रेरणा मुख्यतः किस प्रकार की है?",o:["बाह्य प्रेरणा","दंड-भय प्रेरणा","आंतरिक प्रेरणा","सामाजिक दबाव प्रेरणा"],a:2},
+{q:"कक्षा में एक बच्चा प्रायः सुस्त रहता है और ध्यान नहीं दे पाता। शिक्षिका को पता चलता है कि वह सुबह बिना नाश्ता किए आता है क्योंकि घर में भोजन की कमी है। मास्लो की आवश्यकता-पदानुक्रम के अनुसार शिक्षक की प्राथमिक चिंता क्या होनी चाहिए?",o:["बालक की शारीरिक आवश्यकता (भोजन) की पूर्ति हेतु प्रबंध करना","बालक को अनुशासनहीन मानकर दंड देना","अधिक गृहकार्य देकर ध्यान लगवाना","अभिभावक को केवल शिकायत-पत्र भेजना"],a:0},
+{q:"NCF 2005 की दृष्टि से कक्षा में बच्चों द्वारा की गई 'त्रुटियों' को कैसे देखा जाना चाहिए?",o:["लापरवाही का प्रमाण, जिस पर दंड मिलना चाहिए","बुद्धि की कमी का स्थायी संकेत","अनुशासनहीनता, जिसे अनदेखा करना चाहिए","बालक की सोच को समझने की खिड़की और अधिगम-प्रक्रिया का स्वाभाविक अंग"],a:3},
+{q:"एक ही कक्षा में कुछ बच्चे चित्र देखकर, कुछ सुनकर और कुछ करके जल्दी सीखते हैं। शिक्षक एक ही पाठ को चित्र, कहानी और गतिविधि — तीनों रूपों में प्रस्तुत करता है तथा भिन्न कठिनाई के कार्य देता है। यह किसका उदाहरण है?",o:["एकरूप अनुदेशन","विभेदीकृत अनुदेशन (Differentiated Instruction)","व्याख्यान विधि","रटंत अधिगम"],a:1},
+{q:"अभिकथन (A): पियाजे के अनुसार भाषा के विकास से पहले संज्ञानात्मक संरचनाओं का विकसित होना आवश्यक है।<br>कारण (R): वाइगोत्सकी के अनुसार भाषा केवल चिंतन को व्यक्त नहीं करती, अपितु चिंतन को दिशा भी देती है।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:1},
+{q:"परिवार में बालक प्राथमिक समाजीकरण प्राप्त करता है। विद्यालय में वह भिन्न पृष्ठभूमि के बच्चों के साथ नियमों, भूमिकाओं और मूल्यों को साझा करना सीखता है। विद्यालय इस संदर्भ में किसका उदाहरण है?",o:["प्राथमिक समाजीकरण की संस्था","अनौपचारिक अभिकरण जो समाजीकरण नहीं करता","द्वितीयक समाजीकरण की संस्था","पूर्व-सामाजिक संस्था"],a:2},
+{q:"एक शिक्षक कहता है — 'ज्ञान बच्चों के सिर में भरा नहीं जा सकता; बच्चे अपने अनुभवों और सक्रिय खोजबीन से ज्ञान का निर्माण स्वयं करते हैं; मेरा काम अनुकूल परिस्थितियाँ बनाना है।' यह दृष्टिकोण किस उपागम से मेल खाता है?",o:["रचनावाद (Constructivism)","व्यवहारवाद","पुनर्स्मरणवाद","अधिगम का हस्तांतरण सिद्धांत"],a:0},
+{q:"ड्यूई के प्रगतिशील शिक्षा-दर्शन के अनुरूप कक्षा में सर्वोत्तम गतिविधि कौन-सी होगी?",o:["पाठ के उत्तर शब्दशः कंठस्थ करवाना","बच्चों को चुपचाप बैठकर शिक्षक का व्याख्यान सुनना","एक ही पाठ बार-बार लिखवाकर अभ्यास कराना","बच्चों द्वारा बगीचे में पौधे उगाकर, देखभाल कर व अवलोकन दर्ज कर सीखना (करके सीखना)"],a:3},
+{q:"गणित की कक्षा में शिक्षक क्षेत्रफल का सूत्र स्वयं नहीं बताता; वह बच्चों को वर्ग-कागज़ पर आकृतियाँ बनाकर इकाई वर्ग गिनने को कहता है, जिससे बच्चे स्वयं 'लंबाई × चौड़ाई' तक पहुँचते हैं। यह किस विधि का उदाहरण है?",o:["व्याख्यान विधि","ब्रूनर का खोजपूर्ण (Discovery) अधिगम","प्रोग्राम अनुदेशन","अनुकरण विधि"],a:1}
+];
+/* ---------- भाग 2: भाषा 1 — हिंदी (30) ---------- */
+QB.hindi=[
+{p:"hindiProse",q:"गद्यांश का मूल प्रतिपाद्य क्या है?",o:["तकनीक का पूर्ण बहिष्कार ही बचपन बचा सकता है","खेल बच्चों के सर्वांगीण विकास की पाठशाला हैं; स्क्रीन और मैदान में संतुलन आवश्यक है","पुराने खेल आज अप्रासंगिक हो चुके हैं","प्रतियोगी खेलों से बच्चों में तनाव बढ़ता है"],a:1},
+{p:"hindiProse",q:"गद्यांश के लिए सर्वाधिक उपयुक्त शीर्षक होगा:",o:["बचपन की पाठशाला: खेल का मैदान","स्क्रीन का जादू","हार-जीत का गणित","मिट्टी की महक"],a:0},
+{p:"hindiProse",q:"'आभासी दुनिया' में 'आभासी' शब्द का आशय है:",o:["अत्यंत सुंदर","बहुत पुरानी","जो वास्तविक न हो, केवल प्रतीति मात्र हो","ग्रामीण परिवेश से जुड़ी"],a:2},
+{p:"hindiProse",q:"'शामें छोटी-सी स्क्रीन में सिमट गई हैं' — इस अभिव्यक्ति का आशय है:",o:["शामें अब पहले से छोटी हो गई हैं","स्क्रीन का आकार घट गया है","बच्चे शाम को सो जाते हैं","बच्चों का खेल-संसार सिकुड़कर केवल स्क्रीन तक रह गया है"],a:3},
+{p:"hindiProse",q:"तकनीक के विषय में लेखक का मत क्या है?",o:["तकनीक बच्चों के लिए पूर्णतः हानिकारक है","तकनीक का बहिष्कार नहीं, सीमित-संतुलित उपयोग अपेक्षित है","तकनीक मैदान का पूर्ण विकल्प बन चुकी है","तकनीक का बचपन से कोई संबंध नहीं"],a:1},
+{p:"hindiProse",q:"खेलों को 'बचपन की पाठशालाएँ' कहने का औचित्य क्या है?",o:["खेलों के बहाने बच्चे धैर्य, अनुशासन, सहानुभूति जैसे जीवन-मूल्य सीखते हैं","खेलों में भी परीक्षा और अंक मिलते हैं","मैदान में पढ़ाई के पाठ पढ़ाए जाते थे","खेल केवल शारीरिक व्यायाम कराते हैं"],a:0},
+{p:"hindiProse",q:"'बच्चों की शामें मैदानों में बीतती थीं' — 'मैदानों में' में कौन-सा कारक है?",o:["कर्म कारक","करण कारक","अधिकरण कारक","अपादान कारक"],a:2},
+{p:"hindiProse",q:"गद्यांश की भाषा-शैली की सर्वाधिक उपयुक्त पहचान है:",o:["आदेशात्मक एवं कठोर","व्यंग्यात्मक एवं उपहासपूर्ण","केवल तथ्यपरक समाचार-शैली","विचारात्मक निबंध-शैली — सहज, संवादी एवं भावात्मक"],a:3},
+{p:"hindiPoem",q:"'पंथी को छाया नहीं' में 'पंथी' का अर्थ है:",o:["पक्षी","राहगीर (पथ का यात्री)","पंडित","माली"],a:1},
+{p:"hindiPoem",q:"पहले दोहे में खजूर के पेड़ की उपमा किसके लिए दी गई है?",o:["परिश्रमी किसान के लिए","उदार धनी व्यक्ति के लिए","ऐसे बड़े/ऊँचे व्यक्ति के लिए जिसकी बड़ाई दूसरों के किसी काम नहीं आती","ज्ञानी गुरु के लिए"],a:2},
+{p:"hindiPoem",q:"'ढाई आखर प्रेम का, पढ़े सो पंडित होय' का आशय है:",o:["प्रेम का अनुभव ही सच्ची विद्वत्ता है; केवल पोथी-ज्ञान पर्याप्त नहीं","ढाई अक्षर वाला कोई विशेष मंत्र पढ़ना चाहिए","पंडित बनने के लिए कम पढ़ना चाहिए","प्रेम शब्द की वर्तनी सीखना आवश्यक है"],a:0},
+{p:"hindiPoem",q:"कबीर निंदक को 'नियरे' (पास) रखने की सलाह क्यों देते हैं?",o:["निंदक से मित्रता मनोरंजन का साधन है","निंदक की बातें सुनकर क्रोध करना चाहिए","निंदक को दंडित करने का अवसर मिलता है","निंदा से अपने दोष दिखते हैं और स्वभाव बिना साबुन-पानी के निर्मल होता है"],a:3},
+{p:"hindiPoem",q:"'पोथी पढ़ि पढ़ि जग मुआ, पंडित भया न कोय' — इस पंक्ति में कवि की दृष्टि किस पर है?",o:["पुस्तकों के पूर्ण त्याग पर","केवल पुस्तकीय/रटंत ज्ञान की सार्थकता पर प्रश्न — व्यवहार का ज्ञान श्रेष्ठ","अधिक पढ़ने से मृत्यु होने पर","पंडितों के सम्मान पर"],a:1},
+{p:"hindiPoem",q:"कबीर के इन दोहों की भाषा को क्या कहा जाता है?",o:["अवधी","ब्रजभाषा","सधुक्कड़ी (पंचमेल खिचड़ी)","खड़ी बोली"],a:2},
+{p:"hindiPoem",q:"तीनों दोहों की साझा काव्य-विशेषता क्या है?",o:["तीनों नैतिक जीवन-मूल्यों की उपदेशात्मक अभिव्यक्ति हैं — अहंकार-त्याग, प्रेम और आत्म-सुधार","तीनों में प्रकृति-सौंदर्य का वर्णन है","तीनों वीर रस की रचनाएँ हैं","तीनों में राजाओं की प्रशंसा है"],a:0},
+{q:"चार वर्ष का बच्चा बिना किसी औपचारिक शिक्षण के, घर के वातावरण में सहज ही मातृभाषा बोलना सीख लेता है; किंतु विद्यालय में व्याकरण के नियम सचेतन प्रयास से सीखता है। ये दोनों क्रमशः क्या कहलाते हैं?",o:["अधिगम और अर्जन","अर्जन और अर्जन","अर्जन (Acquisition) और अधिगम (Learning)","अधिगम और अधिगम"],a:2},
+{q:"भाषा-कौशलों के स्वाभाविक विकास का सही क्रम है:",o:["पढ़ना–लिखना–सुनना–बोलना","सुनना–बोलना–पढ़ना–लिखना","बोलना–सुनना–लिखना–पढ़ना","लिखना–पढ़ना–बोलना–सुनना"],a:1},
+{q:"अभिकथन (A): 'मेरे को जाना है' जैसी अभिव्यक्तियाँ बालक की भाषा-अर्जन की स्वाभाविक त्रुटियाँ हैं।<br>कारण (R): बालक भाषा के नियमों का स्वयं परीक्षण एवं सामान्यीकरण करता है और अंतर्व्याकरण का निर्माण करता है।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:0},
+{q:"मौन पठन (Silent Reading) का प्रमुख उद्देश्य क्या है?",o:["उच्चारण की शुद्धता का अभ्यास","कंठस्थ करने की गति बढ़ाना","कक्षा को अनुशासित रखना","अर्थ-ग्रहण पर एकाग्रता तथा पठन-गति का विकास"],a:3},
+{q:"परीक्षा में 'अपठित गद्यांश' देने का मुख्य औचित्य क्या है?",o:["अपरिचित सामग्री के अर्थ-बोध एवं पठन-कौशल का आकलन करना","रटे हुए पाठ की स्मृति जाँचना","सुलेख की सुंदरता जाँचना","केवल कठिन शब्दों की वर्तनी जाँचना"],a:0},
+{q:"शिक्षक पहले कक्षा में 'लड़का दौड़ता है, घोड़ा दौड़ता है, नदी बहती है' जैसे उदाहरण देता है; बच्चे समानता खोजकर स्वयं 'क्रिया' की पहचान और नियम बनाते हैं। यह व्याकरण-शिक्षण की कौन-सी विधि है?",o:["निगमन विधि (नियम से उदाहरण)","पाठ-कंठस्थ विधि","आगमन विधि (उदाहरण से नियम)","अनुवाद विधि"],a:2},
+{q:"श्रुतलेख (Dictation) का सर्वाधिक उपयुक्त शैक्षिक उद्देश्य है:",o:["केवल सुंदर अक्षर बनवाना","उच्चारण एवं वर्तनी के संबंध को समझना — श्रवण-लेखन समन्वय","बच्चों को व्यस्त रखना","लेखन-गति को यंत्रवत बढ़ाना"],a:1},
+{q:"अभिकथन (A): कक्षा की बहुभाषिकता भाषा-शिक्षण के लिए एक संसाधन है, बाधा नहीं।<br>कारण (R): बच्चों की ज्ञात भाषाएँ नई भाषा के अर्थ-निर्माण में सेतु का कार्य करती हैं।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:0},
+{q:"कक्षा 4 के कुछ बच्चे बार-बार वर्तनी की एक जैसी अशुद्धियाँ करते हैं। शिक्षक को सबसे पहले क्या करना चाहिए और उसके बाद क्या?",o:["पहले उपचारात्मक अभ्यास, फिर कारण खोजना","पहले अभिभावकों को दंड-शिकायत, फिर अभ्यास","पहले अधिक गृहकार्य, फिर परीक्षा","पहले निदानात्मक परीक्षण से त्रुटि-कारण जानना, फिर लक्षित उपचारात्मक शिक्षण"],a:3},
+{q:"भाषा-प्रयोगशाला (Language Lab) का सर्वाधिक उपयुक्त उपयोग किस लिए होता है?",o:["व्याकरण के नियम रटवाने हेतु","श्रवण, उच्चारण एवं मौखिक अभ्यास हेतु","केवल लिखित परीक्षा लेने हेतु","पुस्तकालय के विकल्प के रूप में"],a:1},
+{q:"कविता-शिक्षण में शिक्षक का सर्वोत्तम प्रारंभिक कार्य क्या होना चाहिए?",o:["कवि का विस्तृत जीवन-वृत्त लिखवाना","कठिन शब्दों के अर्थ पहले रटवाना","लयबद्ध सस्वर वाचन द्वारा रसानुभूति एवं काव्य-सौंदर्य का आस्वादन कराना","कविता का सारांश शब्दशः कंठस्थ करवाना"],a:2},
+{q:"भाषा-मूल्यांकन में पोर्टफोलियो का प्रमुख लाभ क्या है?",o:["समय-समय पर संचित रचनाओं से बालक की प्रगति के समग्र प्रमाण मिलते हैं","एक ही परीक्षा से अंतिम निर्णय हो जाता है","बच्चों की तुलना कर क्रम-सूची बनती है","अंक-पत्र भरने में सुविधा होती है"],a:0},
+{q:"एक शिक्षक क्षेत्र की लोककथाएँ और स्थानीय कहावतें कक्षा में लाता है। NCF 2005 की दृष्टि से यह क्यों उचित है?",o:["पाठ्यपुस्तक पूर्ण करने में समय बचता है","बच्चों को मनोरंजन मिलता है","लोककथाएँ व्याकरण सिखाने का एकमात्र स्रोत हैं","भाषा-अधिगम बालक के परिवेश एवं पूर्वानुभवों से जुड़कर अर्थपूर्ण बनता है"],a:3},
+{q:"रचनात्मक लेखन (जैसे 'मेरा प्रिय त्योहार') से पूर्व शिक्षक को क्या करना चाहिए?",o:["तैयार निबंध रटवा देना","विचार-मंथन एवं रूपरेखा द्वारा बच्चों के अनुभव-कल्पना को उद्दीप्त करना","कठिन शब्दों की सूची लिखवा देना","पहले निबंध लिखवाकर बाद में विषय समझाना"],a:1},
+{q:"डिस्लेक्सिया से प्रभावित बालक के हिंदी-मूल्यांकन में सर्वाधिक उचित समायोजन क्या है?",o:["उसे परीक्षा से पूर्ण छूट दे देना","उसे केवल कम अंक देकर उत्तीर्ण करना","अतिरिक्त समय, मौखिक उत्तर का विकल्प जैसे उचित समायोजन — क्षमता का वास्तविक आकलन","उसे अलग विद्यालय भेज देना"],a:2}
+];
+/* ---------- भाग 3(A): भाषा 2 — English (30) ---------- */
+QB.english=[
+{p:"engProse",q:"What is the main idea of the passage?",o:["Honeybees have the smallest brains in the animal world.","Bees communicate the location of food to each other through the waggle dance.","Flowers bloom and fade very quickly in nature.","Worker bees never leave their hive."],a:1},
+{p:"engProse",q:"According to the passage, a LONGER waggle in the dance indicates that the food is —",o:["closer to the hive","richer in nectar","farther away from the hive","hidden behind trees"],a:2},
+{p:"engProse",q:"The direction of the flowers is shown by the angle of the dance measured against —",o:["the sun","the lake","the wind","the hive's entrance"],a:0},
+{p:"engProse",q:"The word 'forage' in the passage most nearly means —",o:["to rest inside the hive","to build a new hive","to dance in a circle","to search for food"],a:3},
+{p:"engProse",q:"In 'Scientists find this astonishing', the word 'this' refers to —",o:["the small size of the hive","the bee's ability to share abstract information about an unseen place","the errors made by the dancers","the figure of eight movement of the wings"],a:1},
+{p:"engProse",q:"Which inference is best supported by the passage?",o:["A single perfect dancer is essential for the colony to find food.","Bees with larger brains dance more accurately.","Even imperfect individual dances can serve the colony efficiently as a whole.","Bees visit only those flowers they have personally seen before."],a:2},
+{p:"engProse",q:"The tone of the passage is best described as —",o:["informative and appreciative","humorous and mocking","critical and complaining","persuasive and alarming"],a:0},
+{p:"engProse",q:"The most suitable title for the passage is —",o:["The Life Story of a Worker Bee","How Flowers Trick the Bees","Dangers Facing Bee Colonies","The Language of the Waggle Dance"],a:3},
+{p:"engPoem",q:"'I wandered lonely as a cloud' — which poetic device is used in this line?",o:["Metaphor","Simile","Onomatopoeia","Hyperbole"],a:1},
+{p:"engPoem",q:"'A host, of golden daffodils' — the word 'host' here means —",o:["a person who invites guests","the owner of the lake","a large number or crowd","a heavenly angel"],a:2},
+{p:"engPoem",q:"Which line contains personification?",o:["'Fluttering and dancing in the breeze'","'I wandered lonely as a cloud'","'That floats on high o'er vales and hills'","'Beside the lake, beneath the trees'"],a:0},
+{p:"engPoem",q:"The word 'vales' in the poem means —",o:["sails","walls","veils","valleys"],a:3},
+{p:"engPoem",q:"The rhyme scheme of these six lines is —",o:["aabbcc","ababcc","abcabc","abbaab"],a:1},
+{p:"engPoem",q:"At the beginning of the stanza, the poet's mood is —",o:["joyful and excited","angry and restless","lonely","frightened"],a:2},
+{p:"engPoem",q:"The phrase 'all at once' suggests that the sight of the daffodils was —",o:["sudden and unexpected","slowly revealed over hours","imagined in a dream","expected by the poet"],a:0},
+{q:"According to Krashen, the subconscious, natural absorption of a language through meaningful use is called —",o:["language learning","language training","language acquisition","language drilling"],a:2},
+{q:"The natural order of developing language skills is —",o:["Reading, Writing, Listening, Speaking","Listening, Speaking, Reading, Writing","Speaking, Listening, Writing, Reading","Writing, Reading, Speaking, Listening"],a:1},
+{q:"A learner quickly looks through a railway timetable only to find the departure time of one train. This reading sub-skill is called —",o:["skimming","intensive reading","critical reading","scanning"],a:3},
+{q:"Extensive reading primarily refers to —",o:["reading large amounts of text for pleasure and overall understanding","reading one short paragraph repeatedly for exact details","reading aloud to practise pronunciation","memorising a text word for word"],a:0},
+{q:"Before reading a text, a teacher shows pictures, asks what children already know about the topic, and invites predictions. This preparation follows the —",o:["bottom-up approach","audio-lingual approach","top-down approach","grammar-translation approach"],a:2},
+{q:"Total Physical Response (TPR), in which learners respond physically to the teacher's commands, was developed by —",o:["Noam Chomsky","James Asher","B. F. Skinner","Stephen Krashen"],a:1},
+{q:"A child says 'I goed to the park.' This error is best understood as —",o:["a sign of a language disorder","carelessness that needs punishment","mother-tongue interference","overgeneralisation of a rule — a natural developmental error"],a:3},
+{q:"The most effective way to teach grammar at the primary level is to —",o:["present examples in meaningful contexts and let children discover the rule","make children memorise definitions of parts of speech","teach all rules first and give examples years later","avoid grammar completely at every stage"],a:0},
+{q:"The main purpose of silent reading in an English class is to —",o:["keep the class quiet for the teacher's convenience","improve handwriting","develop comprehension and reading speed with focus on meaning","test pronunciation of every word"],a:2},
+{q:"Storytelling in the primary English classroom is valuable mainly because it —",o:["fills time when the textbook is finished","develops listening comprehension, imagination and prediction skills","replaces the need for any reading","ensures children memorise new spellings"],a:1},
+{q:"As per NCF 2005, the home languages that children bring to an English classroom should be treated as —",o:["obstacles to be banned on school premises","irrelevant to language teaching","signs of a weak learning background","a resource and bridge for learning the new language"],a:3},
+{q:"The ability to hear and manipulate individual sounds in SPOKEN words (e.g., identifying that 'cat' begins with /k/) is called —",o:["phonemic awareness","phonics","sight vocabulary","spelling rules"],a:0},
+{q:"A portfolio in language assessment is —",o:["a single final examination paper","a list of marks in the register","a purposeful collection of a learner's work over time showing growth","a textbook with pictures"],a:2},
+{q:"A cloze test (a passage with deleted words to be filled in) mainly assesses a learner's —",o:["handwriting speed","integrative ability — comprehension, vocabulary and grammar together","ability to memorise the passage","pronunciation only"],a:1},
+{q:"Assertion (A): During fluency-focused speaking activities, the teacher should avoid interrupting to correct every error.<br>Reason (R): Frequent interruption raises anxiety and breaks the flow of communication.",o:["Both A and R are true and R is the correct explanation of A.","Both A and R are true but R is not the correct explanation of A.","A is true but R is false.","A is false but R is true."],a:0}
+];
+/* ---------- भाग 3(B): भाषा 2 — संस्कृत (30) ---------- */
+QB.sanskrit=[
+{p:"sanProse",q:"कृषकः प्रतिदिनं कुत्र गच्छति?",o:["गृहम्","क्षेत्रम्","नगरम्","वनम्"],a:1},
+{p:"sanProse",q:"कृषकस्य क्षेत्रे के सन्ति?",o:["बहवः वृक्षाः","बहवः पथिकाः","बहवः जनाः","बहवः सिंहः"],a:0},
+{p:"sanProse",q:"कृषकः फलानि कुत्र नयति?",o:["क्षेत्रम्","गृहम्","नगरम्","वनम्"],a:2},
+{p:"sanProse",q:"'जनाः फलानि क्रीणन्ति' — 'क्रीणन्ति' इति क्रियापदस्य अर्थः कः?",o:["विक्रयन्ति","त्यजन्ति","खादन्ति","मूल्यं दत्त्वा गृह्णन्ति (खरीदते हैं)"],a:3},
+{p:"sanProse",q:"पथिकः कस्मै आशीर्वादं दत्तवान्?",o:["वृक्षाय","कृषकाय","जनान् प्रति","नगराय"],a:1},
+{p:"sanProse",q:"'तस्य क्षेत्रे' — 'तस्य' इति पदे का विभक्तिः, किं च वचनम्?",o:["चतुर्थी, एकवचनम्","तृतीया, बहुवचनम्","षष्ठी, एकवचनम्","पञ्चमी, एकवचनम्"],a:2},
+{p:"sanProse",q:"अस्य गद्यांशस्य कृते उचितं शीर्षकं किम्?",o:["परोपकारी कृषकः","क्षुधितः सिंहः","नगरस्य वर्णनम्","वृक्षस्य महिमा"],a:0},
+{p:"sanProse",q:"गद्यांशानुसारं कृषकः कीदृशः आसीत्?",o:["क्रोधी","आलसी","लोभी","परोपकारी (दूसरों की सहायता करने वाला)"],a:3},
+{p:"sanPoem",q:"विद्या किं ददाति?",o:["धनम्","सुखम्","विनयम्","मनोरथम्"],a:2},
+{p:"sanPoem",q:"विनयात् जनः किं याति (प्राप्नोति)?",o:["धनम्","पात्रताम्","सुखम्","धर्मम्"],a:1},
+{p:"sanPoem",q:"श्लोकानुसारं धनात् किं भवति?",o:["धर्मः","विनयः","मनोरथः","निद्रा"],a:0},
+{p:"sanPoem",q:"कार्याणि केन सिध्यन्ति?",o:["मनोरथैः","निद्रया","वचनैः","उद्यमेन (परिश्रम से)"],a:3},
+{p:"sanPoem",q:"सुप्तस्य सिंहस्य मुखे के न प्रविशन्ति?",o:["वृक्षाः","मृगाः","पथिकाः","जनाः"],a:1},
+{p:"sanPoem",q:"'मनोरथैः' इति पदे का विभक्तिः, किं च वचनम्?",o:["द्वितीया, एकवचनम्","षष्ठी, बहुवचनम्","तृतीया, बहुवचनम्","चतुर्थी, एकवचनम्"],a:2},
+{p:"sanPoem",q:"प्रथमश्लोकस्य मुख्यः सन्देशः कः?",o:["विद्या विनयं ददाति, ततः पात्रता-धन-धर्म-सुखस्य परम्परा चलति — विद्या एव सुखस्य मूलम्","धनम् एव जीवनस्य लक्ष्यम्","सिंहः वने एव शोभते","मनोरथाः एव कार्याणि साधयन्ति"],a:0},
+{q:"प्राथमिक/उच्च-प्राथमिक स्तर पर संस्कृत-शिक्षण का प्रमुख उद्देश्य क्या है?",o:["केवल धार्मिक श्लोकों का कंठस्थ कराना","भाषिक कौशलों (श्रवण, भाषण, पठन, लेखन) का विकास तथा सरल संस्कृत-वाङ्मय से परिचय","केवल संस्कृत में अनुवाद-परीक्षा उत्तीर्ण कराना","संस्कृत को केवल प्राचीन भाषा के रूप में प्रदर्शित करना"],a:1},
+{q:"श्लोक-कंठस्थ कराने का सर्वाधिक उपयुक्त शैक्षिक औचित्य क्या है?",o:["यही संस्कृत-शिक्षण का एकमात्र लक्ष्य है","इससे व्याकरण स्वतः आ जाता है","उच्चारण-शुद्धि, लय-बोध एवं भाषा-संस्कार — किंतु मात्र रटन पर्याप्त नहीं, अर्थ-बोध भी आवश्यक","इससे परीक्षा में अंक अधिक मिलते हैं"],a:2},
+{q:"एक बालक लिखता है — 'बालकः गच्छन्ति।' यह त्रुटि मुख्यतः किस कोटि की है?",o:["कर्ता और क्रिया के वचन-सामंजस्य (अन्वय) की त्रुटि","संधि की त्रुटि","लिंग-कोश की त्रुटि","वाक्य-क्रम की त्रुटि"],a:0},
+{q:"संधि-शिक्षण की सर्वाधिक प्रभावी विधि कौन-सी है?",o:["सभी संधियों की सूची एक साथ रटवाना","केवल परिभाषाएँ लिखवाना","परीक्षा में बार-बार पूछना","'विद्या + आलयः = विद्यालयः' जैसे उदाहरणों से बच्चों द्वारा नियम की खोज (आगमन)"],a:3},
+{q:"धातु-रूपों (जैसे गम्, पठ्) के शिक्षण की सर्वाधिक उपयुक्त विधि है:",o:["सारणी रटवाकर छोड़ देना","वाक्य-प्रयोग द्वारा — 'अहं गच्छामि, त्वं गच्छसि, सः गच्छति' में प्रयोग करते हुए रूप-परिचय","केवल धातुओं के अर्थ लिखवाना","धातु-रूप उच्च कक्षाओं तक टाल देना"],a:1},
+{q:"संस्कृत-कथा (जैसे 'काकः पिपासितः') के शिक्षण में सर्वोत्तम प्रारंभिक गतिविधि क्या है?",o:["कठिन शब्दों के अर्थ रटवाना","कथा का हिंदी अनुवाद शब्दशः लिखवाना","चित्रों एवं क्रमबद्ध घटनाओं द्वारा कथानक-बोध, फिर सरल संस्कृत में पुनर्कथन","कथा की व्याकरण-व्याख्या से शुरुआत"],a:2},
+{q:"संस्कृत में श्रवण-कौशल के विकास हेतु सर्वाधिक उपयुक्त गतिविधि है:",o:["सरल संस्कृत-निर्देशों/संवादों को सुनकर अर्थ-ग्रहण एवं अनुक्रिया करना","केवल मौन पठन","धातु-सारणी लिखना","शब्दकोश से अर्थ खोजना"],a:0},
+{q:"संभाषण-विधि (संस्कृत को संस्कृत में ही बोलकर सिखाना) किस उपागम से सर्वाधिक मेल खाती है?",o:["व्याकरण-अनुवाद उपागम","पाठ-कंठस्थ उपागम","व्यवहारवादी ड्रिल उपागम","संप्रेषणात्मक (Communicative) उपागम"],a:3},
+{q:"संस्कृत में बच्चों के उच्चारण एवं मौखिक प्रयोग का आकलन करने का सर्वाधिक उपयुक्त साधन है:",o:["केवल लिखित वर्तनी-परीक्षा","अवलोकन-सूची (चेकलिस्ट) सहित मौखिक गतिविधियाँ","गृहकार्य की मोटाई देखना","वार्षिक परीक्षा का एक प्रश्न"],a:1},
+{q:"संस्कृत-शिक्षण में शब्द-चित्र कार्ड, धातु-कार्ड एवं वाक्य-पट्ट किस श्रेणी में आते हैं और क्यों उपयोगी हैं?",o:["मूल्यांकन-साधन; अंक देने में","प्रशासनिक साधन; समय बचाने में","दृश्य-श्रव्य शिक्षण-सामग्री (TLM); अमूर्त भाषा-तत्वों को मूर्त-रोचक बनाने में","परीक्षा-साधन; प्रश्न बनाने में"],a:2},
+{q:"हिंदी मातृभाषी बच्चों को संस्कृत सिखाते समय 'अग्नि, जल, फल, विद्यालय' जैसे तत्सम शब्दों से शुरुआत क्यों उपयुक्त है?",o:["ज्ञात भाषा से लक्ष्य भाषा तक सेतु बनता है — पूर्वज्ञान से अधिगम-हस्तांतरण सुगम होता है","ये शब्द संस्कृत में नहीं होते","इससे व्याकरण पढ़ाने की आवश्यकता समाप्त हो जाती है","इससे उच्चारण-अभ्यास की आवश्यकता नहीं रहती"],a:0},
+{q:"बालक 'रामः वनं गच्छति' के स्थान पर 'राम वन को जाता है' जैसी संरचना में विभक्ति छोड़ देता है। इस कठिनाई का सर्वाधिक संभावित कारण क्या है?",o:["संस्कृत शब्दकोश का अभाव","मातृभाषा-हस्तक्षेप — हिंदी में कारक-चिह्न ('को/से') अलग शब्द हैं, संस्कृत में विभक्ति शब्द-रूप में जुड़ती है","बालक की कम बुद्धि","पाठ्यपुस्तक की त्रुटि"],a:1},
+{q:"संस्कृत में निदानात्मक परीक्षण के बाद उपचारात्मक शिक्षण का सर्वाधिक उपयुक्त स्वरूप क्या है?",o:["पूरी पाठ्यपुस्तक दोबारा पढ़वा देना","पहचानी गई विशिष्ट कठिनाई (जैसे वचन-प्रयोग) पर लघु लक्षित अभ्यास एवं तत्काल फीडबैक","अधिक श्लोक कंठस्थ करवाना","कठिन प्रश्न-पत्र हल करवाना"],a:1},
+{q:"NCF 2005 के अनुसार संस्कृत की अनुशंसित स्थिति क्या है?",o:["प्राथमिक स्तर पर अनिवार्य प्रथम भाषा","केवल वैकल्पिक माध्यम-भाषा","उच्च-प्राथमिक स्तर (कक्षा 6–8) पर तृतीय भाषा के रूप में अध्ययन","पूर्णतः पाठ्यक्रम से बाहर"],a:2},
+{q:"अभिकथन (A): संस्कृत-शिक्षण में व्याकरण-अनुवाद विधि की सीमा है कि वह बालक की मातृभाषा-निर्भरता बढ़ाती है।<br>कारण (R): इस विधि से बालक लक्ष्य भाषा का प्रत्यक्ष अर्थ-बोध एवं प्रयोग करने के स्थान पर प्रत्येक वाक्य का अनुवाद करने लगता है।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:0}
+];
+/* ---------- भाग 4: गणित (30) ---------- */
+QB.math=[
+{q:"भिन्नों 3/5, 7/10, 4/7, 5/8 को आरोही क्रम में सही व्यवस्थित करने पर कौन-सा क्रम बनेगा?",o:["3/5 < 4/7 < 5/8 < 7/10","4/7 < 5/8 < 3/5 < 7/10","4/7 < 3/5 < 5/8 < 7/10","7/10 < 5/8 < 3/5 < 4/7"],a:2},
+{q:"दो संख्याओं का म.स.प. 12 और ल.स.प. 180 है। यदि एक संख्या 36 हो, तो दूसरी संख्या होगी:",o:["54","60","72","90"],a:1},
+{q:"एक आयत की लंबाई उसकी चौड़ाई की दुगुनी है। यदि परिमाप 54 सेमी हो, तो आयत का क्षेत्रफल होगा:",o:["81 वर्ग सेमी","108 वर्ग सेमी","144 वर्ग सेमी","162 वर्ग सेमी"],a:3},
+{q:"₹800 की एक वस्तु के मूल्य में पहले 10% की वृद्धि की गई, फिर नए मूल्य में 10% की कमी की गई। अंतिम मूल्य होगा:",o:["₹792","₹800","₹808","₹784"],a:0},
+{q:"5 संख्याओं का औसत 27 है। एक संख्या हटा देने पर शेष 4 का औसत 25 हो जाता है। हटाई गई संख्या है:",o:["27","30","35","40"],a:2},
+{q:"150 मीटर लंबी एक रेलगाड़ी 250 मीटर लंबे पुल को 20 सेकंड में पूरी तरह पार करती है। रेलगाड़ी की चाल है:",o:["54 किमी/घंटा","72 किमी/घंटा","80 किमी/घंटा","90 किमी/घंटा"],a:1},
+{q:"एक टंकी का 2/5 भाग भरा है। 30 लीटर पानी और डालने पर वह 7/10 भाग भर जाती है। टंकी की कुल क्षमता है:",o:["60 लीटर","75 लीटर","90 लीटर","100 लीटर"],a:3},
+{q:"पिता की आयु पुत्र से 24 वर्ष अधिक है। 4 वर्ष बाद पिता की आयु पुत्र की आयु की तीन गुनी हो जाएगी। पुत्र की वर्तमान आयु है:",o:["8 वर्ष","10 वर्ष","12 वर्ष","6 वर्ष"],a:0},
+{q:"₹78 को A, B, C में 1/2 : 1/3 : 1/4 के अनुपात में बाँटा गया। B का हिस्सा होगा:",o:["₹36","₹18","₹24","₹26"],a:2},
+{q:"एक त्रिभुज के कोण 2 : 3 : 4 के अनुपात में हैं। सबसे बड़ा कोण तथा त्रिभुज का प्रकार होगा:",o:["90°, समकोण त्रिभुज","80°, न्यूनकोण त्रिभुज","100°, अधिककोण त्रिभुज","80°, समकोण त्रिभुज"],a:1},
+{q:"20 मी × 15 मी के एक आयताकार बगीचे के चारों ओर बाहर की तरफ 2 मीटर चौड़ा रास्ता बना है। रास्ते का क्षेत्रफल है:",o:["140 वर्ग मी","148 वर्ग मी","152 वर्ग मी","156 वर्ग मी"],a:3},
+{q:"एक घन का कुल पृष्ठीय क्षेत्रफल 150 वर्ग सेमी है। उसका आयतन होगा:",o:["125 घन सेमी","150 घन सेमी","216 घन सेमी","100 घन सेमी"],a:0},
+{q:"6 मजदूर एक दीवार 12 दिन में बनाते हैं। उसी कार्य को 9 मजदूर (समान क्षमता के) कितने दिन में पूरा करेंगे?",o:["18 दिन","9 दिन","8 दिन","6 दिन"],a:2},
+{q:"आँकड़ों 2, 4, 4, 8, 12 के माध्य और माध्यक का अंतर है:",o:["0","2","4","6"],a:1},
+{q:"वह छोटी से छोटी संख्या जिसे 4, 6 और 8 से भाग देने पर प्रत्येक दशा में 3 शेष बचे, है:",o:["24","25","26","27"],a:3},
+{q:"NCF 2005 के अनुसार गणित-शिक्षण का 'उच्चतर लक्ष्य' क्या है?",o:["तेज़ी से सही उत्तर निकालना","बालक के चिंतन का गणितीकरण — तर्क, अमूर्तन एवं समस्या-समाधान की क्षमता","सूत्रों का स्मरण","परीक्षा में पूर्ण अंक प्राप्त करना"],a:1},
+{q:"एक बालक वर्ग को इसलिए 'वर्ग' कहता है क्योंकि 'यह वैसा ही दिखता है जैसे खिड़की', किंतु भुजाओं-कोणों के गुण नहीं बता पाता। वैन-हीली के अनुसार वह ज्यामितीय चिंतन के किस स्तर पर है?",o:["दृश्यीकरण (Visualization) स्तर","विश्लेषण स्तर","अनौपचारिक निगमन स्तर","औपचारिक निगमन स्तर"],a:0},
+{q:"एक बालक हल करता है: 1/2 + 1/3 = 2/5। इस त्रुटि का सर्वोत्तम विश्लेषण एवं उपचार क्या है?",o:["बालक ने लापरवाही की; दंड दें","बालक को और अधिक ऐसे ही प्रश्न रटवाएँ","बालक ने अंश-अंश और हर-हर जोड़ दिए — भिन्न के अर्थ की भ्रांति; भिन्न-पट्टियों जैसी मूर्त सामग्री से समान हर का अर्थ स्पष्ट करें","त्रुटि अनदेखी करें; स्वतः सुधर जाएगी"],a:2},
+{q:"एक छात्र कहता है कि 0.25 > 0.5 क्योंकि 25 > 5। यह भ्रांति मुख्यतः किसकी अपूर्ण समझ दर्शाती है?",o:["जोड़ की क्रिया की","गुणा की क्रिया की","भिन्न के चिह्न की","दशमलव में स्थानीय मान की — दशमलव की तुलना पूर्ण संख्याओं जैसी कर रहा है"],a:3},
+{q:"शिक्षक गिनती सिखाते समय पहले बीड/कंकड़ गिनवाता है, फिर चित्रों में गिनती कराता है, और अंत में संख्या-चिह्न (अंक) से जोड़ता है। यह किस क्रम का अनुप्रयोग है?",o:["अमूर्त → मूर्त → चित्रात्मक","मूर्त → चित्रात्मक → अमूर्त","चित्रात्मक → अमूर्त → मूर्त","अमूर्त → चित्रात्मक → मूर्त"],a:1},
+{q:"निम्न में से कौन-सा 'खुला (Open-ended)' गणितीय प्रश्न है?",o:["'परिमाप 24 सेमी वाले दो अलग-अलग आयत बनाओ और उनकी भुजाएँ बताओ'","'7 × 8 कितना होता है?'","'144 का वर्गमूल क्या है?'","'वर्ग की कितनी भुजाएँ होती हैं?'"],a:0},
+{q:"निदानात्मक परीक्षण (Diagnostic Test) का मुख्य उद्देश्य क्या है?",o:["बच्चों को अंतिम अंक देना","बच्चों की तुलनात्मक मेरिट-सूची बनाना","अधिगम-कठिनाई के विशिष्ट क्षेत्र एवं कारणों की पहचान करना","वार्षिक परिणाम घोषित करना"],a:2},
+{q:"शाब्दिक समस्या हल कराते समय शिक्षक पहले पूछता है — 'क्या दिया गया है? क्या ज्ञात करना है?' पोल्या के समस्या-समाधान चरणों में यह किस चरण से मेल खाता है?",o:["योजना बनाना","योजना क्रियान्वित करना","पुनर्विलोकन (देखना)","समस्या को समझना (प्रथम चरण)"],a:3},
+{q:"एक छात्रा कहती है — 'मुझसे गणित नहीं होगा, लड़कियाँ गणित में कमज़ोर होती हैं।' शिक्षक की सर्वाधिक उपयुक्त प्रतिक्रिया क्या है?",o:["उसकी बात मानकर उसे आसान कार्य दे देना","रूढ़िवादिता को चुनौती देते हुए महिला गणितज्ञों के उदाहरण देना, छोटे सफल अनुभवों से आत्मविश्वास बनाना","उसे डाँटकर चुप करा देना","उसे गणित छोड़ देने की सलाह देना"],a:1},
+{q:"गणित के मूल्यांकन में सर्वाधिक उपयुक्त दृष्टिकोण क्या है?",o:["केवल अंतिम उत्तर ही नहीं, हल की प्रक्रिया, तर्क एवं वैकल्पिक विधियों का भी आकलन","केवल अंतिम उत्तर मिलाना","गति ही एकमात्र कसौटी है","सुंदर अंकों-लेखन को अंक देना"],a:0},
+{q:"जियोबोर्ड (Geoboard) प्राथमिक कक्षा में मुख्यतः किसके लिए उपयोगी है?",o:["गुणा-सारणी रटने हेतु","दशमलव-जोड़ हेतु","समतल आकृतियों की रचना, परिमाप एवं क्षेत्रफल की खोज हेतु","आँकड़ों का माध्य निकालने हेतु"],a:2},
+{q:"गणित में सन्निकटन (Estimation) कौशल का महत्व क्यों है?",o:["इससे सटीक उत्तर की आवश्यकता समाप्त हो जाती है","यह केवल परीक्षा में समय बचाता है","यह गणना-त्रुटियों को बढ़ाता है","यह उत्तर की तार्किकता जाँचने तथा दैनिक जीवन के व्यावहारिक निर्णयों में सहायक है"],a:3},
+{q:"सामान्य बुद्धि वाला एक बालक संख्याओं को पहचानने, मात्रा-तुलना एवं स्थानीय मान में लगातार कठिनाई दिखाता है। यह सर्वाधिक संभवतः क्या है?",o:["डिस्लेक्सिया","डिस्कैल्कुलिया — संख्या-संवेद से जुड़ी विशिष्ट अधिगम अक्षमता","दृष्टि-बाधा","जानबूझकर किया गया व्यवहार"],a:1},
+{q:"अभिकथन (A): गणित में यांत्रिक अभ्यास (Drill) से पहले संकल्पना की समझ आवश्यक है।<br>कारण (R): समझ के बिना किया गया अभ्यास यांत्रिक होकर शीघ्र विस्मृत होता है और नई परिस्थितियों में हस्तांतरित नहीं हो पाता।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:0},
+{q:"34 + 28 हल करते समय एक बालक मानक विधि के स्थान पर कहता है — '30 + 20 = 50, 4 + 8 = 12, इसलिए 62।' शिक्षक की सर्वोत्तम प्रतिक्रिया होगी:",o:["विधि गलत बताकर मानक विधि ही लिखवाएँ","उत्तर सही है पर विधि पर टिप्पणी न करें","बालक की रणनीति स्वीकार करें, कक्षा में विभिन्न विधियों पर चर्चा कराएँ — रचनावादी दृष्टि","अंक काट लें क्योंकि विधि पाठ्यपुस्तक वाली नहीं है"],a:2}
+];
+/* ---------- भाग 5: पर्यावरण अध्ययन (30) ---------- */
+QB.evs=[
+{q:"अचार बनाने में अधिक नमक और तेल क्यों मिलाया जाता है?",o:["केवल स्वाद बढ़ाने के लिए","अचार का रंग सुंदर करने के लिए","नमी एवं सूक्ष्मजीवों की वृद्धि रोककर भोजन को लंबे समय तक संरक्षित रखने के लिए","अचार को जल्दी पकाने के लिए"],a:2},
+{q:"एक बच्चे को शाम के समय धुंधला दिखाई देता है और आँखों में सूखापन है। यह किस विटामिन की कमी का संकेत है और कौन-से भोजन उपयुक्त हैं?",o:["विटामिन C — नींबू, आँवला","विटामिन A — गाजर, पपीता, हरी पत्तेदार सब्ज़ियाँ","विटामिन D — धूप में बैठना","विटामिन B — दालें"],a:1},
+{q:"मदार (आक) के हल्के, रेशेदार बीज मुख्यतः किस माध्यम से फैलते हैं?",o:["वायु द्वारा","जल द्वारा","जंतुओं के पेट द्वारा","स्वयं फटकर (विस्फोट द्वारा)"],a:0},
+{q:"सर्दियों की प्रातः घास पर ओस की बूँदें जल-चक्र की किस प्रक्रिया का परिणाम हैं?",o:["वाष्पन","वर्षण","रिसाव (अंतःस्रवण)","संघनन — वायु के जलवाष्प का ठंडी सतह से टकराकर बूँद बनना"],a:3},
+{q:"सुबह के समय सूर्य की ओर मुँह करके खड़े हों, तो दाहिने हाथ की दिशा कौन-सी होगी?",o:["उत्तर","दक्षिण","पश्चिम","पूर्व"],a:1},
+{q:"कच्छ (गुजरात) के 'भुंगा' — गोल, मिट्टी के घर — वहाँ के लिए उपयुक्त क्यों माने जाते हैं?",o:["वे बनाने में सबसे सस्ते होते हैं","वे देखने में सुंदर होते हैं","गोल आकृति भूकंप में अधिक स्थिर रहती है और मोटी मिट्टी की दीवारें भीषण गर्मी में घर को ठंडा रखती हैं","वे बहुत ऊँचे बनाए जा सकते हैं"],a:2},
+{q:"बगुले की लंबी टाँगें और लंबी चोंच मुख्यतः किस अनुकूलन को दर्शाती हैं?",o:["उथले/दलदली जल में खड़े होकर मछली पकड़ना","पेड़ पर घोंसला बनाना","तेज़ उड़ान भरना","रेगिस्तान में रहना"],a:0},
+{q:"खाद्य-श्रृंखला 'अनाज → चूहा → साँप → चील' में यदि सभी साँप मार दिए जाएँ, तो सबसे संभावित प्रत्यक्ष परिणाम क्या होगा?",o:["अनाज की खेती बढ़ जाएगी","चील की संख्या बढ़ जाएगी","चूहों की संख्या घट जाएगी","चूहों की संख्या बढ़ेगी और अनाज को अधिक हानि होगी"],a:3},
+{q:"किसी नक्शे का पैमाना 1 सेमी = 10 किमी है। नक्शे पर दो गाँवों की दूरी 4.5 सेमी है, तो वास्तविक दूरी होगी:",o:["4.5 किमी","45 किमी","450 किमी","40 किमी"],a:1},
+{q:"खेतों में जल की अधिकतम बचत हेतु सर्वाधिक उपयुक्त सिंचाई विधि कौन-सी है?",o:["खेत को भरकर बाढ़-सिंचाई","नालों से बहाकर सिंचाई","टपक (Drip) सिंचाई — पौधे की जड़ के पास बूँद-बूँद जल","फव्वारे से दोपहर में सिंचाई"],a:2},
+{q:"रवि की मौसी की बेटी, रवि की क्या लगेगी?",o:["मौसेरी बहन","चचेरी बहन","सगी बहन","बुआ की बेटी"],a:0},
+{q:"कुम्हार कच्ची मिट्टी के बर्तन को भट्ठी में पकाता है, फिर वह पानी में नहीं गलता। यह किस प्रकार का परिवर्तन है?",o:["परिवर्तनीय (उलटा जा सकने वाला) परिवर्तन","अस्थायी परिवर्तन","केवल आकार का परिवर्तन","अपरिवर्तनीय परिवर्तन — पक्की मिट्टी पुनः कच्ची नहीं होती"],a:3},
+{q:"पत्तियों में भोजन-निर्माण (प्रकाश-संश्लेषण) के लिए किसकी आवश्यकता नहीं होती?",o:["जल","ऑक्सीजन","कार्बन डाइऑक्साइड","सूर्य-प्रकाश"],a:1},
+{q:"केंचुओं से खाद (वर्मीकम्पोस्ट) बनाने हेतु किस प्रकार का कचरा उपयुक्त है?",o:["प्लास्टिक की थैलियाँ","काँच के टुकड़े","गीला जैव-अपघटनीय कचरा — सब्ज़ियों के छिलके, बचा भोजन","धातु के डिब्बे"],a:2},
+{q:"रेशम का कीड़ा (रेशम-कीट) मुख्यतः किस पौधे के पत्ते खाता है, जिससे कोकून में रेशे बनते हैं?",o:["शहतूत (Mulberry)","नीम","बरगद","तुलसी"],a:0},
+{q:"प्राथमिक स्तर पर 'पर्यावरण अध्ययन' एक एकीकृत विषय है। NCF 2005 के अनुसार इसमें किन क्षेत्रों का समन्वय होता है?",o:["केवल विज्ञान के तथ्य","विज्ञान, सामाजिक विज्ञान एवं पर्यावरण शिक्षा","केवल सामाजिक विज्ञान","केवल नैतिक शिक्षा"],a:1},
+{q:"'रिश्ते — दादी-नानी, मौसी-बुआ, ममेरे-फुफेरे भाई-बहन' से संबंधित अधिगम EVS की किस थीम के अंतर्गत आता है?",o:["परिवार एवं मित्र","भोजन","यात्रा","चीज़ें जो हम बनाते हैं और करते हैं"],a:0},
+{q:"EVS कक्षा में चर्चा-विधि के दौरान शिक्षक की सर्वाधिक उपयुक्त भूमिका क्या है?",o:["स्वयं बोलते रहना, बच्चों को सुनना","केवल पाठ्यपुस्तक पढ़कर सुनाना","चर्चा को तुरंत समाप्त करा देना","सुविधाप्रदाता — बच्चों के अनुभव साझा कराना, प्रश्नों से चर्चा गहरी करना"],a:3},
+{q:"शिक्षक पूछता है — 'यदि वर्षा न हो तो हमारे गाँव/शहर का जीवन कैसा होगा?' यह प्रश्न मुख्यतः किसलिए श्रेष्ठ है?",o:["इसका एक ही निश्चित उत्तर है","यह पाठ्यपुस्तक से शब्दशः लिया गया है","यह खुला प्रश्न है — कल्पना, तर्क एवं बहु-आयामी सोच को उद्दीप्त करता है","यह केवल स्मृति जाँचता है"],a:2},
+{q:"बच्चे तीन सप्ताह तक अपने उगाए पौधे की लंबाई मापकर चित्र-सहित रिकॉर्ड बनाते हैं। इससे मुख्यतः किस कौशल का विकास होता है?",o:["केवल लेखन-सुंदरता","अवलोकन, मापन एवं आँकड़ा-दर्ज करने की प्रक्रिया-विज्ञान कौशल","कंठस्थ करने की क्षमता","केवल गणना-गति"],a:1},
+{q:"'दादी-नानी से उनके बचपन के खेलों का साक्षात्कार' जैसी गतिविधि EVS में क्यों मूल्यवान है?",o:["यह स्थानीय/पीढ़ीगत ज्ञान से जोड़ती है तथा सामाजिक-संवाद कौशल विकसित करती है","इससे पाठ याद हो जाता है","यह परीक्षा का प्रश्न-पत्र बनती है","इससे बच्चों का समय कटता है"],a:0},
+{q:"एक बच्चा मानता है कि 'बादल रुई के बने होते हैं क्योंकि वे रुई जैसे दिखते हैं।' शिक्षक की सर्वोत्तम प्रतिक्रिया क्या है?",o:["बच्चे को गलत बोलने पर डाँटना","सीधे सही परिभाषा रटवा देना","भ्रांति को अनदेखा करना","वर्षा-अवलोकन, जलवाष्प-संघनन के सरल प्रयोगों से बच्चे को स्वयं संकल्प-निर्माण का अवसर देना"],a:3},
+{q:"EVS के सतत एवं व्यापक मूल्यांकन हेतु सर्वाधिक उपयुक्त साधन-समूह कौन-सा है?",o:["केवल वार्षिक लिखित परीक्षा","पोर्टफोलियो, अवलोकन-पंजिका, गतिविधि/परियोजना एवं मौखिक अभिव्यक्ति","केवल श्रुतलेख","केवल बहुविकल्पीय प्रश्न-पत्र"],a:1},
+{q:"कक्षा में चलने-फिरने में असमर्थ बच्चे के प्रति EVS शिक्षक का सर्वाधिक उपयुक्त दृष्टिकोण क्या है?",o:["उसे सभी गतिविधियों से छूट दे देना","उसके लिए केवल सहानुभूति दिखाना","संवेदनशीलता के साथ समान अवसर — गतिविधियों में ऐसा समायोजन कि वह भी भूमिका निभा सके","उसे अलग बैठाकर केवल लिखित कार्य देना"],a:2},
+{q:"शैक्षिक भ्रमण (Field Trip) को सार्थक बनाने की सबसे आवश्यक शर्त क्या है?",o:["स्पष्ट अधिगम-उद्देश्य, पूर्व-योजना तथा भ्रमण-पश्चात चर्चा/अनुभव-लेखन","केवल मनोरंजन का अवसर देना","बस की सुविधा सुनिश्चित करना","अभिभावकों से शुल्क लेना"],a:0},
+{q:"प्राथमिक कक्षा में मानचित्र-कौशल सिखाने का सर्वाधिक उपयुक्त क्रम क्या है?",o:["सीधे भारत का राजनीतिक मानचित्र","सीधे विश्व-मानचित्र","सीधे अक्षांश-देशांतर","कक्षा/कमरे का नक्शा → विद्यालय → मोहल्ला → गाँव/शहर — मूर्त परिवेश से अमूर्त की ओर"],a:3},
+{q:"NCF 2005 की दृष्टि से EVS में पाठ्यपुस्तक की स्थिति क्या होनी चाहिए?",o:["वही एकमात्र प्रामाणिक स्रोत है","अनेक संसाधनों में से एक — परिवेश, अनुभव, स्थानीय ज्ञान भी समान महत्वपूर्ण","उसे पढ़कर प्रश्नोत्तर रटना ही पर्याप्त है","उसे कक्षा में लाना ही नहीं चाहिए"],a:1},
+{q:"पाठ शुरू करने से पहले शिक्षक 'जल' शब्द से जुड़ी बच्चों की मौजूदा धारणाओं का संकल्प-चित्र (Concept Map) बनवाता है। इसका मुख्य प्रयोजन क्या है?",o:["कक्षा सजावट","पूर्वज्ञान एवं धारणाओं (सहित भ्रांतियों) की पहचान, जिससे शिक्षण जोड़ा जा सके","अंक देना","अभिभावक-बैठक की रिपोर्ट"],a:1},
+{q:"अभिकथन (A): EVS में रटने की अपेक्षा खोजबीन एवं अनुभवजन्य अधिगम पर बल दिया जाता है।<br>कारण (R): बालक परिवेश से सक्रिय अंतःक्रिया करके ज्ञान का निर्माण स्वयं करता है, जो स्थायी एवं अर्थपूर्ण होता है।",o:["A और R दोनों सही हैं तथा R, A की सही व्याख्या करता है।","A और R दोनों सही हैं, किंतु R, A की सही व्याख्या नहीं करता है।","A सही है, किंतु R गलत है।","A गलत है, किंतु R सही है।"],a:0},
+{q:"'पौधों' के अधिगम का सर्वाधिक उच्च-स्तरीय अधिगम-संकेतक (Learning Indicator) कौन-सा है?",o:["बच्चा पौधे के भागों के नाम बता दे","बच्चा पाठ के प्रश्नोत्तर लिख दे","बच्चा पौधे का चित्र बना दे","बच्चा दो पौधों की वृद्धि का अवलोकन कर अंतर दर्ज करे और संभावित कारण का तर्कपूर्ण निष्कर्ष निकाले"],a:3}
+];
+
+/* ==================== ENGINE ==================== */
+const $=s=>document.querySelector(s);
+const $$=s=>Array.from(document.querySelectorAll(s));
+const SECTIONS=[
+ {key:"cdp",short:"बाल विकास",title:"बाल विकास एवं शिक्षाशास्त्र",from:1},
+ {key:"hindi",short:"हिंदी",title:"भाषा 1 · हिंदी",from:31},
+ {key:"lang2",short:"भाषा 2",title:"भाषा 2",from:61},
+ {key:"math",short:"गणित",title:"गणित",from:91},
+ {key:"evs",short:"पर्यावरण",title:"पर्यावरण अध्ययन",from:121}
+];
+let paper=[],state=null,timer=null,active=false,result=null;
+let rFilter="all",rSort="num",rQuery="";
+
+function qs(key,lang){return key==="lang2"?(lang==="english"?QB.english:QB.sanskrit):QB[key];}
+function tag(sec,i){if(sec==="cdp")return "शिक्षाशास्त्र";if(sec==="hindi"||sec==="lang2")return i<15?"अपठित बोध":"भाषा शिक्षण";return i<15?"विषय-वस्तु":"शिक्षण-विधि";}
+function makePaper(lang){const out=[];SECTIONS.forEach((s,si)=>{qs(s.key,lang).forEach(q=>{out.push(Object.assign({},q,{sec:s.key,si:si,n:out.length+1,tag:tag(s.key,out.length-si*30)}));});});return out;}
+function validate(){const need={cdp:30,hindi:30,english:30,sanskrit:30,math:30,evs:30};for(const k in need){if(!QB[k]||QB[k].length!==need[k])return k+": प्रश्न-संख्या त्रुटि";for(let i=0;i<QB[k].length;i++){const q=QB[k][i];if(!q.q||!q.o||q.o.length!==4||!(q.a>=0&&q.a<=3))return k+" #"+(i+1)+": संरचना त्रुटि";if(q.p&&!PASSAGES[q.p])return k+" #"+(i+1)+": अंश त्रुटि";}}return null;}
+function stats(){let c=0,w=0,u=0,m=0;const secs=SECTIONS.map(s=>({title:s.key==="lang2"?(state.lang==="english"?"भाषा 2 · English":"भाषा 2 · संस्कृत"):s.title,a:0,c:0,w:0,u:0}));paper.forEach((q,i)=>{const a=state.answers[i];const s=secs[q.si];if(state.marked[i])m++;if(a==null){u++;s.u++;}else{s.a++;if(a===q.a){c++;s.c++;}else{w++;s.w++;}}});return{c,w,u,m,attempted:c+w,score:c,pct:c/150*100,pass:c>=90,secs};}
+function fmt(t){const h=Math.floor(t/3600),m=Math.floor(t%3600/60),s=t%60;return h>0?h+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0"):m+":"+String(s).padStart(2,"0");}
+function save(){try{localStorage.setItem(STORE,JSON.stringify(state));}catch(e){}}
+function load(){try{return JSON.parse(localStorage.getItem(STORE)||"null");}catch(e){return null;}}
+function wipe(){try{localStorage.removeItem(STORE);}catch(e){}}
+function show(id){$$(".screen").forEach(s=>s.classList.remove("active"));$("#screen-"+id).classList.add("active");document.body.dataset.screen=id;window.scrollTo(0,0);}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),2600);}
+
+function omr(){
+ const fills=[1,3,0,2,1,0,3,2,1,2,0,3];let rows="";
+ for(let r=0;r<12;r++){rows+='<text x="16" y="'+(60+r*24)+'" class="omr-n">'+(r+1)+'</text>';
+  for(let c=0;c<4;c++){const f=c===fills[r];rows+='<circle cx="'+(52+c*30)+'" cy="'+(56+r*24)+'" r="8" class="omr-b'+(f?" f":"")+'" style="animation-delay:'+((r*4+c)*35)+'ms"/>';}}
+ const pencil='<g class="omr-pencil" transform="rotate(-32 150 318)"><rect x="112" y="312" width="76" height="11" rx="5"/><path d="M188 312 l16 5.5 -16 5.5 z"/></g>';
+ $("#omrArt").innerHTML='<svg viewBox="0 0 210 360" role="img" aria-label="OMR उत्तर-पत्र"><rect x="4" y="4" width="182" height="352" rx="14" class="omr-sheet"/><text x="16" y="30" class="omr-t">CTET · PAPER 1</text><line x1="16" y1="40" x2="174" y2="40" class="omr-l"/>'+rows+pencil+'</svg>';
+}
+function tabs(){
+ $("#sectionTabs").innerHTML=SECTIONS.map((s,i)=>{const nm=s.key==="lang2"?(state.lang==="english"?"English":"संस्कृत"):s.short;const to=s.from+29;return '<button class="stab" data-si="'+i+'"><b>'+nm+'</b><span>'+s.from+'–'+to+'</span></button>';}).join("");
+}
+function palette(){
+ $("#paletteGrid").innerHTML=paper.map((q,i)=>'<button class="pbtn" data-i="'+i+'" aria-label="प्रश्न '+(i+1)+'">'+(i+1)+'</button>').join("");
+}
+function paintPalette(){
+ $$(".pbtn").forEach(b=>{const i=+b.dataset.i;b.className="pbtn";if(state.answers[i]!=null)b.classList.add("ans");if(state.marked[i])b.classList.add("mrk");if(state.visited[i]&&state.answers[i]==null&&!state.marked[i])b.classList.add("seen");if(i===state.current)b.classList.add("cur");});
+ const done=Object.keys(state.answers).length;$("#answeredCount").textContent=done;$("#progressFill").style.width=(done/150*100)+"%";
+}
+function paintTabs(){const si=paper[state.current].si;$$(".stab").forEach(b=>b.classList.toggle("on",+b.dataset.si===si));}
+function renderQ(){
+ const i=state.current,q=paper[i];state.visited[i]=true;
+ const s=SECTIONS[q.si];const secName=q.sec==="lang2"?(state.lang==="english"?"भाषा 2 · English":"भाषा 2 · संस्कृत"):s.title;
+ const a=state.answers[i];const L=(state.lang==="english"&&q.sec==="lang2")?"Q":"प्रश्न";
+ let h='<div class="qcard"><div class="qmeta"><span class="qnum">'+L+' '+q.n+'<em>/150</em></span><span class="chip c-sec">'+secName+'</span><span class="chip c-tag">'+q.tag+'</span>'+(state.marked[i]?'<span class="chip c-mrk">★ चिह्नित</span>':'')+'</div>';
+ if(q.p){const P=PASSAGES[q.p];h+='<details class="passage" open><summary><span>📖 '+P.title+'</span><em>क्लिक कर छिपाएँ/दिखाएँ</em></summary><div class="ptext">'+P.text+'</div></details>';}
+ h+='<div class="qtext">'+q.q+'</div><div class="opts" role="radiogroup">';
+ q.o.forEach((op,j)=>{h+='<label class="opt'+(a===j?" sel":"")+'"><input type="radio" name="opt" value="'+j+'"'+(a===j?" checked":"")+'><span class="okey">'+"ABCD"[j]+'</span><span class="otext">'+op+'</span><span class="ock">✓</span></label>';});
+ h+='</div></div>';
+ $("#questionHost").innerHTML=h;
+ $("#btnPrev").disabled=i===0;
+ $("#btnNext").innerHTML=i===149?'जमा करें ✔':'सहेजें और अगला →';
+ $("#btnMark").classList.toggle("on",!!state.marked[i]);
+ $("#btnMark").innerHTML=state.marked[i]?'★ चिह्न हटाएँ':'☆ समीक्षा हेतु चिह्नित';
+ paintTabs();paintPalette();save();
+}
+function pick(j){state.answers[state.current]=j;$$("#questionHost .opt").forEach((l,idx)=>{l.classList.toggle("sel",idx===j);l.querySelector("input").checked=idx===j;});paintPalette();save();}
+function clearAns(){delete state.answers[state.current];$$("#questionHost .opt").forEach(l=>{l.classList.remove("sel");l.querySelector("input").checked=false;});paintPalette();save();toast("उत्तर हटा दिया गया");}
+function mark(){const i=state.current;state.marked[i]=!state.marked[i];$("#btnMark").classList.toggle("on",!!state.marked[i]);$("#btnMark").innerHTML=state.marked[i]?'★ चिह्न हटाएँ':'☆ समीक्षा हेतु चिह्नित';const meta=$("#questionHost .qmeta");const ex=meta.querySelector(".c-mrk");if(state.marked[i]&&!ex)meta.insertAdjacentHTML("beforeend",'<span class="chip c-mrk">★ चिह्नित</span>');else if(!state.marked[i]&&ex)ex.remove();paintPalette();save();}
+function go(i){if(i<0||i>149)return;state.current=i;renderQ();$("#questionHost").scrollIntoView({behavior:"smooth",block:"start"});}
+function next(){if(state.current===149)openSubmit();else go(state.current+1);}
+function prev(){go(state.current-1);}
+function startTimer(){clearInterval(timer);tick();timer=setInterval(tick,500);}
+function tick(){if(!state||!active)return;const rem=Math.max(0,Math.ceil((state.end-Date.now())/1000));const el=$("#timer");el.textContent=fmt(rem);el.classList.toggle("low",rem<=600);if(rem<=0)finish(true);}
+function openSubmit(){const st=stats();$("#submitStats").innerHTML='<div class="srow"><span>उत्तर दिए</span><b>'+st.attempted+'/150</b></div><div class="srow"><span>अनुत्तरित</span><b>'+st.u+'</b></div><div class="srow"><span>चिह्नित</span><b>'+st.m+'</b></div><div class="srow"><span>शेष समय</span><b>'+$("#timer").textContent+'</b></div>'+(st.u>0?'<p class="swarn">⚠ '+st.u+' प्रश्न अब भी खाली हैं। ऋणात्मक अंकन नहीं है — सभी प्रश्न हल करना लाभकारी है।</p>':'');$("#submitModal").classList.add("open");}
+function closeSubmit(){$("#submitModal").classList.remove("open");}
+function finish(auto){if(!active)return;active=false;clearInterval(timer);const st=stats();const used=CONFIG.duration-Math.max(0,Math.ceil((state.end-Date.now())/1000));result=Object.assign({},st,{auto:auto,used:Math.max(0,Math.min(CONFIG.duration,used))});wipe();closeSubmit();closePal();renderResult();show("result");}
+function renderResult(){
+ const r=result;$("#resultName").textContent=state.name;
+ $("#resultMeta").innerHTML='भाषा 2: <b>'+(state.lang==="english"?"English":"संस्कृत")+'</b> · '+(r.auto?'<b>समय समाप्त — स्वतः जमा</b>':'स्वयं जमा किया');
+ $("#scoreNum").textContent=r.score;$("#scorePct").textContent=r.pct.toFixed(1)+"%";
+ $("#passBadge").className="badge "+(r.pass?"pass":"fail");$("#passBadge").innerHTML=r.pass?'🎉 उत्तीर्ण · Passed':'📚 उत्तीर्णांक से कम · फिर अभ्यास करें';
+ const C=2*Math.PI*52;const ring=$("#ringFg");ring.style.strokeDasharray=C;ring.style.strokeDashoffset=C;ring.classList.toggle("fail",!r.pass);
+ requestAnimationFrame(()=>{requestAnimationFrame(()=>{ring.style.strokeDashoffset=C*(1-r.score/150);});});
+ $("#statCorrect").textContent=r.c;$("#statWrong").textContent=r.w;$("#statSkipped").textContent=r.u;
+ $("#statAccuracy").textContent=(r.attempted?Math.round(r.c/r.attempted*100):0)+"%";$("#statTime").textContent=fmt(r.used);
+ $("#sectionTable").innerHTML='<table><thead><tr><th>भाग</th><th>प्रयास</th><th>सही</th><th>गलत</th><th>अंक</th></tr></thead><tbody>'+r.secs.map(s=>'<tr><td>'+s.title+'</td><td>'+s.a+'/30</td><td class="ok">'+s.c+'</td><td class="bad">'+s.w+'</td><td><b>'+s.c+'</b></td></tr>').join("")+'<tr class="tot"><td>कुल</td><td>'+r.attempted+'/150</td><td class="ok">'+r.c+'</td><td class="bad">'+r.w+'</td><td><b>'+r.score+'</b></td></tr></tbody></table>';
+ renderReview();
+}
+function statusOf(i){const a=state.answers[i];if(a==null)return"skip";return a===paper[i].a?"correct":"wrong";}
+function renderReview(){
+ let items=paper.map((q,i)=>({q:q,i:i,st:statusOf(i)}));
+ if(rFilter==="marked")items=items.filter(x=>state.marked[x.i]);else if(rFilter!=="all")items=items.filter(x=>x.st===rFilter);
+ if(rQuery){const qq=rQuery.toLowerCase();items=items.filter(x=>(x.q.q+" "+x.q.o.join(" ")).toLowerCase().indexOf(qq)>-1);}
+ if(rSort==="status"){const ord={wrong:0,skip:1,correct:2};items.sort((a,b)=>ord[a.st]-ord[b.st]||a.i-b.i);}
+ $("#reviewCount").textContent=items.length;
+ $("#reviewList").innerHTML=items.length?items.map(x=>reviewCard(x.q,x.i,x.st)).join(""):'<div class="empty">इस फ़िल्टर में कोई प्रश्न नहीं मिला।</div>';
+}
+function reviewCard(q,i,st){
+ const a=state.answers[i];const s=SECTIONS[q.si];const secName=q.sec==="lang2"?(state.lang==="english"?"English":"संस्कृत"):s.short;
+ const badge=st==="correct"?'<span class="rb ok">✓ सही</span>':st==="wrong"?'<span class="rb bad">✗ गलत</span>':'<span class="rb skip">○ अनुत्तरित</span>';
+ let h='<article class="rcard '+st+'"><div class="rhead"><span class="rq">प्रश्न '+q.n+'</span><span class="chip c-sec">'+secName+'</span><span class="chip c-tag">'+q.tag+'</span>'+badge+(state.marked[i]?'<span class="chip c-mrk">★</span>':'')+'</div>';
+ if(q.p){const P=PASSAGES[q.p];h+='<details class="passage"><summary><span>📖 '+P.title+'</span><em>अंश देखें</em></summary><div class="ptext">'+P.text+'</div></details>';}
+ h+='<div class="qtext">'+q.q+'</div><div class="opts">';
+ q.o.forEach((op,j)=>{let c="opt static";if(j===q.a)c+=" correct";if(a===j&&j!==q.a)c+=" wrong";h+='<div class="'+c+'"><span class="okey">'+"ABCD"[j]+'</span><span class="otext">'+op+'</span>'+(j===q.a?'<span class="ock">✓</span>':'')+(a===j&&j!==q.a?'<span class="ox">✗</span>':'')+'</div>';});
+ h+='</div><div class="keyline">'+(a==null?'आपका उत्तर: —':'आपका उत्तर: '+("ABCD"[a]))+' · सही उत्तर: '+("ABCD"[q.a])+'</div></article>';return h;
+}
+function download(){
+ const r=result;let t="Mock Test 1 for CTET Primary Level\nCompiled by Sandeep Sir\n\nName: "+state.name+"\nLanguage 2: "+(state.lang==="english"?"English":"Sanskrit")+"\nScore: "+r.score+"/150 ("+r.pct.toFixed(1)+"%) — "+(r.pass?"PASSED":"NOT QUALIFIED")+"\nCorrect: "+r.c+" | Wrong: "+r.w+" | Unattempted: "+r.u+" | Time: "+fmt(r.used)+"\n\nSection-wise:\n";
+ r.secs.forEach(s=>{t+=s.title+": "+s.c+"/30 (attempted "+s.a+")\n";});
+ t+="\nAnswer key (your answer / correct):\n";paper.forEach((q,i)=>{const a=state.answers[i];t+="Q"+q.n+": "+(a==null?"-":"ABCD"[a])+" / "+"ABCD"[q.a]+"\n";});
+ const blob=new Blob([t],{type:"text/plain;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="CTET-Mock1-Result.txt";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function openPal(){document.body.classList.add("pal-open");}
+function closePal(){document.body.classList.remove("pal-open");}
+function begin(){
+ state.answers=state.answers||{};state.marked=state.marked||{};state.visited=state.visited||{};state.current=state.current||0;
+ paper=makePaper(state.lang);active=true;show("exam");$("#examName").textContent=state.name;tabs();palette();renderQ();startTimer();save();
+}
+function startFresh(){
+ const l=document.querySelector('input[name="lang2"]:checked');
+ if(!l){toast("कृपया भाषा 2 (English / संस्कृत) चुनें — अनिवार्य है।");$("#setupCard").classList.add("shake");setTimeout(()=>$("#setupCard").classList.remove("shake"),500);return;}
+ state={name:($("#nameInput").value.trim()||"विद्यार्थी"),lang:l.value,answers:{},marked:{},visited:{},current:0,end:Date.now()+CONFIG.duration*1000,start:Date.now()};
+ begin();
+}
+function retry(){wipe();location.reload();}
+function bind(){
+ $("#startBtn").addEventListener("click",startFresh);
+ $$('input[name="lang2"]').forEach(r=>r.addEventListener("change",()=>{$$(".lang-card").forEach(c=>c.classList.toggle("picked",c.querySelector("input").checked));}));
+ $("#questionHost").addEventListener("change",e=>{if(e.target.name==="opt")pick(+e.target.value);});
+ $("#btnPrev").addEventListener("click",prev);$("#btnNext").addEventListener("click",next);
+ $("#btnClear").addEventListener("click",clearAns);$("#btnMark").addEventListener("click",mark);
+ $("#submitBtn").addEventListener("click",openSubmit);$("#confirmSubmit").addEventListener("click",()=>finish(false));$("#cancelSubmit").addEventListener("click",closeSubmit);
+ $("#sectionTabs").addEventListener("click",e=>{const b=e.target.closest(".stab");if(b)go((+b.dataset.si)*30);});
+ $("#paletteGrid").addEventListener("click",e=>{const b=e.target.closest(".pbtn");if(b){go(+b.dataset.i);closePal();}});
+ $("#paletteToggle").addEventListener("click",openPal);$("#paletteFab").addEventListener("click",openPal);$("#paletteClose").addEventListener("click",closePal);$("#paletteBackdrop").addEventListener("click",closePal);
+ $("#retryBtn").addEventListener("click",retry);$("#printBtn").addEventListener("click",()=>window.print());$("#downloadBtn").addEventListener("click",download);
+ $("#filterChips").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;rFilter=b.dataset.f;$$("#filterChips button").forEach(x=>x.classList.toggle("on",x===b));renderReview();});
+ $("#reviewSearch").addEventListener("input",e=>{rQuery=e.target.value.trim();renderReview();});
+ $("#reviewSort").addEventListener("change",e=>{rSort=e.target.value;renderReview();});
+ document.addEventListener("keydown",e=>{
+  if(!active)return;if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+  if(e.key>="1"&&e.key<="4"){pick(+e.key-1);e.preventDefault();}
+  else if(e.key==="ArrowRight"){next();e.preventDefault();}
+  else if(e.key==="ArrowLeft"){prev();e.preventDefault();}
+  else if(e.key.toLowerCase()==="m"){mark();e.preventDefault();}
+  else if(e.key==="Escape"){closeSubmit();closePal();}
+ });
+ window.addEventListener("beforeunload",e=>{if(active){e.preventDefault();e.returnValue="";}});
+ $("#resumeBtn").addEventListener("click",()=>{const sv=load();if(sv){$("#resumeBox").hidden=true;state=sv;begin();}});
+ $("#discardBtn").addEventListener("click",()=>{wipe();$("#resumeBox").hidden=true;toast("पुराना प्रयास हटा दिया गया");});
+}
+function init(){
+ const err=validate();if(err){$("#fatal").hidden=false;$("#fatal").textContent="प्रश्न-बैंक त्रुटि: "+err;return;}
+ omr();bind();
+ const sv=load();
+ if(sv&&sv.lang&&sv.end){
+  if(sv.end>Date.now()+3000){$("#resumeBox").hidden=false;$("#resumeInfo").textContent=(sv.name||"विद्यार्थी")+" · शेष समय "+fmt(Math.ceil((sv.end-Date.now())/1000));}
+  else{state=sv;paper=makePaper(state.lang);active=true;finish(true);}
+ }
+}
+init();
+</script>
+</body>
+</html>
