@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mock Test 1 for CTET Primary Level - Compiled by Sandeep Sir</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #2563eb;
+      --success: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    body { margin: 0; background: var(--bg); color: #1e293b; }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .header-title h1 { margin: 0; font-size: 1.25rem; }
+    .header-title p { margin: 2px 0 0; font-size: 0.85rem; color: #cbd5e1; }
+    .timer-box {
+      background: #dc2626;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .top-controls {
+      background: #e2e8f0;
+      padding: 10px 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sec-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .sec-btn {
+      padding: 8px 14px;
+      border: none;
+      background: #cbd5e1;
+      color: #1e293b;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .sec-btn.active { background: var(--secondary); color: white; }
+    .sec-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .lang2-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      background: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #94a3b8;
+    }
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 16px;
+      padding: 16px 20px;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 900px) {
+      .main-container { grid-template-columns: 1fr; }
+    }
+    .question-area {
+      background: var(--card);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 480px;
+    }
+    .passage-box {
+      background: #f1f5f9;
+      border-left: 4px solid var(--secondary);
+      padding: 14px;
+      margin-bottom: 16px;
+      max-height: 220px;
+      overflow-y: auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .q-text {
+      font-size: 1.08rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      white-space: pre-line;
+    }
+    .options-list { display: flex; flex-direction: column; gap: 10px; }
+    .option-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.15s;
+      line-height: 1.45;
+    }
+    .option-label:hover { background: #f8fafc; border-color: var(--secondary); }
+    .option-label.selected {
+      background: #eff6ff;
+      border-color: var(--secondary);
+      font-weight: 600;
+    }
+    .nav-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .btn-primary { background: var(--secondary); color: white; }
+    .btn-outline { background: white; border: 1px solid #64748b; color: #334155; }
+    .btn-success { background: var(--success); color: white; }
+    .palette-card {
+      background: var(--card);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      height: fit-content;
+    }
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+      max-height: 320px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .p-btn {
+      padding: 8px 0;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: #f8fafc;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .p-btn.answered { background: var(--success); color: white; border-color: var(--success); }
+    .p-btn.current { outline: 2px solid var(--primary); }
+    .result-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .result-content {
+      background: white;
+      padding: 24px;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .score-badge {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin: 10px 0;
+    }
+    .explanation-box {
+      margin-top: 14px;
+      padding: 12px;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 6px;
+      display: none;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-title">
+    <h1>Mock Test 1 for CTET Primary Level</h1>
+    <p>Compiled by Sandeep Sir | Total Questions: 150 | Max Marks: 150 | Passing: 90 | No Negative Marking</p>
+  </div>
+  <div class="timer-box" id="timerDisplay">02:30:00</div>
+</header>
+
+<div class="top-controls">
+  <div class="sec-tabs">
+    <button class="sec-btn active" onclick="switchSection('CDP')" id="tab-CDP">I. बाल विकास (30)</button>
+    <button class="sec-btn" onclick="switchSection('HINDI')" id="tab-HINDI">II. भाषा-I हिंदी (30)</button>
+    <button class="sec-btn" onclick="switchSection('ENG')" id="tab-ENG">III. Lang-II English (30)</button>
+    <button class="sec-btn" onclick="switchSection('SAN')" id="tab-SAN" disabled>III. भाषा-II संस्कृतम् (30)</button>
+    <button class="sec-btn" onclick="switchSection('MATH')" id="tab-MATH">IV. गणित (30)</button>
+    <button class="sec-btn" onclick="switchSection('EVS')" id="tab-EVS">V. पर्यावरण अध्ययन (30)</button>
+  </div>
+
+  <div class="lang2-selector">
+    <label for="lang2Select">Select Language-II:</label>
+    <select id="lang2Select" onchange="handleLang2Change()">
+      <option value="ENG">English (30 MCQs)</option>
+      <option value="SAN">संस्कृतम् (30 MCQs)</option>
+    </select>
+  </div>
+</div>
+
+<div class="main-container">
+  <div class="question-area">
+    <div>
+      <div id="passageContainer" class="passage-box" style="display:none;"></div>
+      <div class="q-header">
+        <span id="qNumberDisplay">Question 1</span>
+        <span>Marks: +1 | Negative: 0</span>
+      </div>
+      <div id="qTextDisplay" class="q-text"></div>
+      <div id="optionsContainer" class="options-list"></div>
+      <div id="explanationContainer" class="explanation-box"></div>
+    </div>
+
+    <div class="nav-footer">
+      <div>
+        <button class="btn btn-outline" onclick="clearResponse()">Clear Response</button>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <button class="btn btn-outline" onclick="prevQuestion()">Previous</button>
+        <button class="btn btn-primary" onclick="nextQuestion()">Save & Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="palette-card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <strong id="paletteTitle">Section Palette</strong>
+      <span id="AttemptCount" style="font-size:0.85rem; color:#475569;">Answered: 0/150</span>
+    </div>
+    <div class="palette-grid" id="paletteGrid"></div>
+    <hr style="margin: 16px 0; border:0; border-top:1px solid #e2e8f0;">
+    <button class="btn btn-success" style="width:100%;" onclick="submitExam()">Submit Mock Test</button>
+  </div>
+</div>
+
+<div class="result-modal" id="resultModal">
+  <div class="result-content">
+    <h2>CTET Primary Level - Scorecard</h2>
+    <p><strong>Compiled by Sandeep Sir</strong></p>
+    <div class="score-badge" id="finalScoreText">0 / 150</div>
+    <p id="passStatusText" style="font-weight:bold; font-size:1.1rem;"></p>
+    <div id="sectionBreakdown" style="margin: 16px 0; line-height:1.8;"></div>
+    <button class="btn btn-primary" onclick="reviewAnswers()">Review Answers & Explanations</button>
+  </div>
+</div>
+
+<script src="questions.js"></script>
+<script>
+  let currentSection = 'CDP';
+  let selectedLang2 = 'ENG';
+  let currentIndexInSec = 0;
+  let userAnswers = {};
+  let isSubmitted = false;
+  let totalSeconds = 150 * 60;
+
+  function getActiveQuestionsBySection(sec) {
+    return questionsData.filter(q => q.section === sec);
+  }
+
+  function handleLang2Change() {
+    selectedLang2 = document.getElementById('lang2Select').value;
+    document.getElementById('tab-ENG').disabled = (selectedLang2 !== 'ENG');
+    document.getElementById('tab-SAN').disabled = (selectedLang2 !== 'SAN');
+    if (currentSection === 'ENG' || currentSection === 'SAN') {
+      switchSection(selectedLang2);
+    }
+    updateTotalAttemptCount();
+  }
+
+  function switchSection(sec) {
+    currentSection = sec;
+    currentIndexInSec = 0;
+    document.querySelectorAll('.sec-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('tab-' + sec).classList.add('active');
+    renderQuestion();
+    renderPalette();
+  }
+
+  function renderQuestion() {
+    const secQuestions = getActiveQuestionsBySection(currentSection);
+    const qObj = secQuestions[currentIndexInSec];
+    if (!qObj) {
+      document.getElementById('qTextDisplay').innerText = "Questions for this section will be added in the next code part.";
+      document.getElementById('optionsContainer').innerHTML = "";
+      document.getElementById('passageContainer').style.display = 'none';
+      return;
+    }
+
+    document.getElementById('qNumberDisplay').innerText = `${qObj.sectionTitle} - Q.${qObj.qNum}`;
+    if (qObj.passage) {
+      document.getElementById('passageContainer').style.display = 'block';
+      document.getElementById('passageContainer').innerText = qObj.passage;
+    } else {
+      document.getElementById('passageContainer').style.display = 'none';
+    }
+
+    document.getElementById('qTextDisplay').innerText = qObj.question;
+    const optsDiv = document.getElementById('optionsContainer');
+    optsDiv.innerHTML = '';
+
+    qObj.options.forEach((optText, idx) => {
+      const lbl = document.createElement('label');
+      lbl.className = 'option-label';
+      if (userAnswers[qObj.id] === idx) lbl.classList.add('selected');
+
+      if (isSubmitted) {
+        if (idx === qObj.answer) lbl.style.borderColor = '#16a34a';
+        if (userAnswers[qObj.id] === idx && idx !== qObj.answer) lbl.style.borderColor = '#dc2626';
+      }
+
+      lbl.onclick = () => {
+        if (isSubmitted) return;
+        userAnswers[qObj.id] = idx;
+        renderQuestion();
+        renderPalette();
+        updateTotalAttemptCount();
+      };
+
+      lbl.innerHTML = `<input type="radio" name="opt" ${userAnswers[qObj.id] === idx ? 'checked' : ''} ${isSubmitted ? 'disabled' : ''}> <span>${optText}</span>`;
+      optsDiv.appendChild(lbl);
+    });
+
+    const expBox = document.getElementById('explanationContainer');
+    if (isSubmitted) {
+      expBox.style.display = 'block';
+      expBox.innerHTML = `<strong>सही उत्तर (Correct Option): (${qObj.answer + 1})</strong><br>${qObj.explanation || ''}`;
+    } else {
+      expBox.style.display = 'none';
+    }
+  }
+
+  function renderPalette() {
+    const secQuestions = getActiveQuestionsBySection(currentSection);
+    const grid = document.getElementById('paletteGrid');
+    grid.innerHTML = '';
+    secQuestions.forEach((qObj, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'p-btn';
+      if (userAnswers[qObj.id] !== undefined) btn.classList.add('answered');
+      if (idx === currentIndexInSec) btn.classList.add('current');
+      btn.innerText = qObj.qNum;
+      btn.onclick = () => {
+        currentIndexInSec = idx;
+        renderQuestion();
+        renderPalette();
+      };
+      grid.appendChild(btn);
+    });
+  }
+
+  function nextQuestion() {
+    const secQuestions = getActiveQuestionsBySection(currentSection);
+    if (currentIndexInSec < secQuestions.length - 1) {
+      currentIndexInSec++;
+      renderQuestion();
+      renderPalette();
+    }
+  }
+
+  function prevQuestion() {
+    if (currentIndexInSec > 0) {
+      currentIndexInSec--;
+      renderQuestion();
+      renderPalette();
+    }
+  }
+
+  function clearResponse() {
+    if (isSubmitted) return;
+    const secQuestions = getActiveQuestionsBySection(currentSection);
+    const qObj = secQuestions[currentIndexInSec];
+    if (qObj) {
+      delete userAnswers[qObj.id];
+      renderQuestion();
+      renderPalette();
+      updateTotalAttemptCount();
+    }
+  }
+
+  function updateTotalAttemptCount() {
+    const validSections = ['CDP', 'HINDI', selectedLang2, 'MATH', 'EVS'];
+    const activeQuestions = questionsData.filter(q => validSections.includes(q.section));
+    let count = 0;
+    activeQuestions.forEach(q => {
+      if (userAnswers[q.id] !== undefined) count++;
+    });
+    document.getElementById('AttemptCount').innerText = `Answered: ${count}/150`;
+  }
+
+  function submitExam() {
+    if (!confirm("Are you sure you want to submit the Mock Test?")) return;
+    isSubmitted = true;
+    const validSections = [
+      { code: 'CDP', name: 'I. बाल विकास एवं शिक्षाशास्त्र' },
+      { code: 'HINDI', name: 'II. भाषा-I: हिंदी' },
+      { code: selectedLang2, name: selectedLang2 === 'ENG' ? 'III. Language-II: English' : 'III. भाषा-II: संस्कृतम्' },
+      { code: 'MATH', name: 'IV. गणित (Mathematics)' },
+      { code: 'EVS', name: 'V. पर्यावरण अध्ययन (EVS)' }
+    ];
+
+    let totalScore = 0;
+    let breakdownHTML = '';
+
+    validSections.forEach(sec => {
+      const qs = getActiveQuestionsBySection(sec.code);
+      let secScore = 0;
+      qs.forEach(q => {
+        if (userAnswers[q.id] === q.answer) secScore++;
+      });
+      totalScore += secScore;
+      breakdownHTML += `<div><strong>${sec.name}:</strong> ${secScore} / 30</div>`;
+    });
+
+    document.getElementById('finalScoreText').innerText = `${totalScore} / 150`;
+    const statusEl = document.getElementById('passStatusText');
+    if (totalScore >= 90) {
+      statusEl.innerText = "QUALIFIED (उत्तीर्ण - 90+ Marks)";
+      statusEl.style.color = "#16a34a";
+    } else {
+      statusEl.innerText = "NOT QUALIFIED (अनुत्तीर्ण - Minimum 90 Required)";
+      statusEl.style.color = "#dc2626";
+    }
+    document.getElementById('sectionBreakdown').innerHTML = breakdownHTML;
+    document.getElementById('resultModal').style.display = 'flex';
+    renderQuestion();
+  }
+
+  function reviewAnswers() {
+    document.getElementById('resultModal').style.display = 'none';
+    renderQuestion();
+  }
+
+  setInterval(() => {
+    if (isSubmitted || totalSeconds <= 0) return;
+    totalSeconds--;
+    const hrs = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+    const mins = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+    const secs = String(totalSeconds % 60).padStart(2, '0');
+    document.getElementById('timerDisplay').innerText = `${hrs}:${mins}:${secs}`;
+    if (totalSeconds === 0) submitExam();
+  }, 1000);
+
+  window.onload = () => {
+    renderQuestion();
+    renderPalette();
+    updateTotalAttemptCount();
+  };
+</script>
+</body>
+</html>
